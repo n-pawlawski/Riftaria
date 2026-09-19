@@ -1,8 +1,8 @@
 # Terraria Mod (working title)
 
-Afterlight is parked. This repo is now the home for a **Terraria** mod built on **tModLoader**.
+A new **Terraria** mod built on **tModLoader**. This is a clean start: no code, art, lore, systems, or leftover design from any earlier project.
 
-The goal is to learn combat, content, and systems work on top of a finished game instead of rebuilding movement, weapons, enemies, world generation, and art from scratch.
+The goal is to learn combat, content, and systems work on top of Terraria instead of rebuilding movement, weapons, enemies, world generation, and art from scratch.
 
 This first commit is a preliminary look at the game and its modding stack — not a playable `.tmod` yet. Building and running a mod requires a local copy of Terraria plus tModLoader. Those are not available in this environment.
 
@@ -10,7 +10,6 @@ This first commit is a preliminary look at the game and its modding stack — no
 
 | Piece | Status |
 | --- | --- |
-| Afterlight | Dropped |
 | Terraria / tModLoader research | Done — see [docs/terraria-modding-brief.md](docs/terraria-modding-brief.md) |
 | Mod identity / theme | Not chosen yet |
 | First in-game content | Next, once tModLoader is installed locally |

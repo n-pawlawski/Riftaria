@@ -1,12 +1,14 @@
 # Terraria modding brief
 
-Preliminary look for the Afterlight pivot. Written against **tModLoader 1.4.4-stable** (latest GitHub stable tag checked: **v2026.06.3.6**, Terraria **1.4.4.9** content). Sources are at the end.
+Preliminary look at Terraria and tModLoader. Written against **tModLoader 1.4.4-stable** (latest GitHub stable tag checked: **v2026.06.3.6**, Terraria **1.4.4.9** content). Sources are at the end.
+
+This is a new project. Do not port, reuse, or adapt anything from earlier work. New content, names, art, and systems start from Terraria + tModLoader only.
 
 This is research, not a playable mod. A `.tmod` has to be built on a machine that already has Terraria and tModLoader installed.
 
 ---
 
-## Why this pivot works
+## Why a Terraria mod
 
 Terraria is a 2D sandbox action game. The loop we care about is already finished:
 
@@ -16,9 +18,20 @@ Terraria is a 2D sandbox action game. The loop we care about is already finished
 - Tiles, walls, NPCs, projectiles, buffs, loot, biomes, and UI
 - Pixel art, sound, and animation conventions that players already understand
 
-A from-scratch game (Afterlight) would have spent most of its early work on that foundation. A tModLoader mod starts *after* that foundation. New work is content and systems: weapons, enemies, hooks into vanilla, maybe a small biome or boss later.
+A from-scratch game would spend most of its early work on that foundation. A tModLoader mod starts *after* that foundation. New work is original content and systems: weapons, enemies, hooks into vanilla, maybe a small biome or boss later.
 
 We do **not** get to ship Terraria itself. Players still need a legal copy of Terraria. tModLoader is a separate Steam app that loads the base game and then loads mods.
+
+## Clean start
+
+Nothing from earlier projects comes along. That includes:
+
+- Code, shaders, data, or configs
+- Art, audio, names, lore, or UI copy
+- Systems, combat rules, or “port this mechanic” leftovers
+- Folder structure or branding
+
+The only inputs are Terraria, tModLoader, ExampleMod, and original work we make for this mod.
 
 ---
 
