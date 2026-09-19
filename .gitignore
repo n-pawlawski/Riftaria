@@ -1,0 +1,11 @@
+# tModLoader / .NET build output
+bin/
+obj/
+.vs/
+*.user
+*.tmod
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
