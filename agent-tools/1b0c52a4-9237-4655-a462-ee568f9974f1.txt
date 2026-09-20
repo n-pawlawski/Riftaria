@@ -1,0 +1,827 @@
+Legacy:Guide:Class setups - Official Terraria Wiki
+
+# Legacy: Guide:Class setups
+
+This is a Guide page. This means the page will walk you through a specific task, strategy, or enemy/ boss fight.
+
+Status: Under revision(This Guide is currently being revised or has been revised partially. It has not met all quality standards yet.)
+
+Things to do:
+
+- Review for accuracy
+
+This is the guide that relates to the Old-gen console version and Nintendo version. For the guide that relates to the Desktop version, Console version, and Mobile version, see Guide:Class setups.
+
+Terraria has no formal player class or leveling system. However, weapons can be grouped into four distinct categories based on their damage type – melee, ranged, magic, and summoner. Each class has its strengths and weaknesses and has a wide variety of weapons to choose from. 
+
+Melee
+
+The melee class sports high defense and decent crowd control, but many melee weapons have a short attack range, and those that are viable at a distance tend to do lower damage than their close-range counterparts. This encourages melee users to use their defense to tank hits while attacking with their stronger close-ranged weapons. Melee weapons include swords, spears, and yoyos, and boomerangs. 
+
+Ranged
+
+Rangers are able to attack from a distance, doing high single-target, piercing, or splash damage. They utilize weapons like bows and guns, as well as thrown objects. Ranged users must constantly acquire ammunition, unless using a ranged weapon that doesn't require ammunition such as the Piranha Gun. 
+
+Magic
+
+Mages are fragile but highly varied in attack style, often utilizing special mechanics such as homing, lifesteal, and area-of-effect damage. They are held back by reliance on mana, which regenerates very slowly unless the Mana Regeneration buff is in effect. Magic users can often sustain their mana using Mana Stars when fighting many enemies at once, but must craft or purchase mana potions if they wish to recover mana instantly during boss fights. Most pre-Plantera magic weapons are specialized for crowd control, with weaker single-target damage than other classes. 
+
+Summoner
+
+Summoners deal most of their damage using autonomous minions and/or sentries, and their attacks usually have excellent accuracy. However, most summoning armor sets have low defense in exchange for their high damage potential. The summoning class was balanced around the idea of the player also using the strongest normal weapon available to them in addition to minions and sentries. [1] 
+
+Each class gains more complex abilities as the game progresses, enabling more strategic variety in combat. It is advised for players to try out every weapon they find to help determine what works best for them. It is also recommended to use buff potions and healing potions to increase efficiency and survivability in combat (especially during events and boss fights). 
+
+In general, it is recommended to focus on gear that benefits one class. Equipment slots are limited, and many armors and accessories only benefit a specific class, especially later into the game. Summoners are an exception to this rule, since summons can deal damage alongside melee/ranged/magic weapons, so summoning gear will always provide a benefit as long as summons are being used. All classes can use at least two minions at all times even without using summoning gear (by using a Bewitching Table), so it's recommended to always utilize these free slots regardless of primary class. 
+
+Note that while it's beneficial to only focus on one class between melee/ranged/magic at a time, there is little benefit to specializing in one class over the course of an entire playthrough, and one should strongly consider switching classes if they happen to obtain a powerful weapon from a different class. 
+
+Even when not specifically using a hybrid set, backup weapons from another class can be helpful should the situation require a different weapon. For example, Vampire Knives can be used even when the player is not playing melee to rapidly heal health and apply Ichor. 
+
+## Contents
+
+- 1 Pre-bosses
+- 2 Pre-Skeletron
+- 3 Pre-Wall of Flesh
+- 4 Pre-mechanical bosses
+- 5 Pre-Plantera
+- 6 Pre-Golem
+- 7 Endgame
+- 8 Other
+- 9 Footnotes
+
+## Pre-bosses
+
+Prior to encountering a boss, set bonuses from wooden and ore armor will almost exclusively provide additional defense, and accessories will not discriminate by weapon type when giving bonuses. When combined with the general scarcity of weapons and the need to survive, there is little point to sticking to a "class" this early on. For these reasons, players are recommended to make use of whatever they can get their hands on. Players can acquire a gun or magic weapon early on by smashing one of the Corruption Orbs (in Corruption worlds) or the Crimson Hearts (in Crimson worlds). Hellstone is obtainable pre-boss by fishing up a Reaver Shark. 
+
+Best
+
+Fiery Greatsword Flamarang 
+
+Enchanted Sword Enchanted Boomerang Thorn Chakram
+
+Best
+
+Ball O' Hurt 
+
+The Rotted Fork Light's Bane Blood Butcherer
+
+Armor
+
+Molten armor 
+
+Boomstick Sharanga 
+
+Musket The Undertaker Minishark
+
+Molten Fury(Jester's Arrows) 
+
+Grenades Shurikens
+
+Armor
+
+Gi(Old-gen console version) 
+
+Buffs/Potions
+
+Archery Potion 
+
+Heart Arrow(3DS version) 
+
+Frostburn Arrow Unholy Arrow Jester's Arrow Silver Bullet Musket Ball
+
+Crystal Storm((3DS version)) 
+
+Second Best
+
+Demon Scythe [a] 
+
+Diamond Staff Ruby Staff Vilethorn
+
+Support Weapons
+
+Crimson Rod 
+
+Defensive
+
+Jungle armor 
+
+Glass Cannon
+
+Wizard Hat Mystic Robe(Old-gen console version) Diamond Robe((3DS version)) Jungle Pants 
+
+Magic Hat(Old-gen console version)
+
+Celestial Cuffs(Old-gen console version) Magic Cuffs((3DS version)) Mana Flower 
+
+Celestial Magnet(Old-gen console version) Mana Regeneration Band
+
+Buffs/Potions
+
+Mana Potion Mana Regeneration Potion Magic Power Potion 
+
+Mages must increase their mana capacity through the use of Mana Crystals before magic weapons become viable. The Magic Hat and Wizard Hat will provide a set bonus when used in conjunction with any robe. Jungle armor and Ancient Cobalt armor can be used interchangeably, with each piece providing the same benefits, and the set bonus being given even when a mix of the 2 armors is used. Depending on the player's skill level, the Demon Scythe can technically be obtained at any point in the game, as Demons will always naturally spawn in the Underworld. 
+
+Imp Staff(Old-gen console version) 
+
+Slime Staff
+
+Buffs/Potions
+
+Summoning Potion 
+
+Molten armor 
+
+Second Best
+
+Platinum armor 
+
+Gold armor
+
+Mobility Accessories
+
+Survivability Accessories
+
+Band of Regeneration 
+
+Well Fed Honeyfin Endurance Potion Wrath Potion Rage Potion 
+
+Healing Potion Ironskin Potion Swiftness Potion Regeneration Potion
+
+## Pre-Skeletron
+
+After defeating the first bosses, you gain access to the first few class-specific accessories and armor, along with Shadow/ Crimson armor. For mages, mana management is less of a problem with an item like the Mana Flower and enough Mana Potions. 
+
+Best
+
+Bee Keeper Flamarang Fiery Greatsword 
+
+Starfury
+
+Best
+
+Fiery Greatsword Bee Keeper 
+
+Thorn Chakram
+
+Molten armor 
+
+Shadow armor Crimson armor
+
+Best
+
+Star Cannon Beenades Sharanga 
+
+Boomstick Egg Cannon(3DS version)
+
+Best
+
+Star Cannon Beenades 
+
+Molten Fury(Jester's Arrows)
+
+Armor
+
+Crimson armor Gi(Old-gen console version) 
+
+Buffs/Potions
+
+Archery Potion 
+
+Heart Arrows(3DS version) Hellfire Arrows Unholy Arrows Meteor Shot 
+
+Frostburn Arrow Silver Bullet Musket Ball
+
+Crystal Storm((3DS version)) 
+
+Second Best
+
+Demon Scythe 
+
+Bee Gun
+
+Offensive
+
+Buffs/Potions
+
+Mana Potion Mana Regeneration Potion Magic Power Potion 
+
+Best
+
+Hornet Staff(Old-gen console version) 
+
+Imp Staff(Old-gen console version) Slime Staff
+
+Armor
+
+Bee armor(Old-gen console version) 
+
+Buffs/Potions
+
+Summoning Potion 
+
+Crimson armor 
+
+Molten armor
+
+Offensive
+
+Mobility
+
+Boots of Ostara(3DS version) 
+
+Best
+
+Horn o' plenty(3DS version) Well Fed Wrath Potion Rage Potion Endurance Potion 
+
+Great
+
+Honeyfin Ironskin Potion 
+
+Healing Potion Swiftness Potion Regeneration Potion
+
+## Pre-Wall of Flesh
+
+Defeating Skeletron provides access to the Dungeon, giving access to Necro armor and new weapons from Dungeon and Shadow Chests. By this time you should generally have 200 base mana, plenty for using magic weapons. 
+
+Best
+
+Phasesaber(3DS version) Night's Edge Dark Lance Sunfury 
+
+Flamarang
+
+Armor
+
+Molten armor 
+
+Sake(Old-gen console version) 
+
+Ale Flask of Poison
+
+Pre-Wall of Flesh Ranged
+
+Best
+
+Star Cannon Beenades 
+
+Phoenix Blaster Sharanga
+
+Armor
+
+Necro armor 
+
+Buffs/Potions
+
+Archery Potion Ammo Reservation Potion Ammo Box(Old-gen console version) 
+
+Best
+
+Heart Arrow(3DS version) Hellfire Arrow Meteor Shot 
+
+Unholy Arrow Fallen Star
+
+Crystal Storm(3DS version) 
+
+Second Best
+
+Demon Scythe Aqua Scepter 
+
+Flower of Fire
+
+Best
+
+Aqua Scepter Demon Scythe Water Bolt 
+
+Vilethorn
+
+Crimson Rod 
+
+Jungle armor 
+
+Offensive
+
+Wizard Hat Mystic Robe(Old-gen console version) Diamond Robe(3DS version) Meteor Leggings 
+
+Magic Cuffs
+
+Buffs/Potions
+
+Mana Regeneration Potion Magic Power Potion 
+
+Best
+
+Hornet Staff(Old-gen console version) 
+
+Imp Staff(Old-gen console version) Slime Staff
+
+Armor
+
+Bee armor(Old-gen console version) 
+
+Buffs/Potions
+
+Summoning Potion 
+
+Crimson armor 
+
+Molten armor
+
+Hybrid Summoner
+
+Bee Headgear(Old-gen console version) 
+
+Bee armor(Old-gen console version)
+
+Bee(Old-gen console version) Slime(Old-gen console version) 
+
+Best
+
+Well Fed Horn o' plenty(3DS version) Rage Potion Wrath Potion Endurance Potion 
+
+Great
+
+Honeyfin Heartreach Potion Regeneration Potion Ironskin Potion 
+
+Healing Potion Swiftness Potion Gravitation Potion
+
+## Pre-mechanical bosses
+
+At this point in the game, damage bonuses from armor and accessories become more significant, so it is recommended to choose a class to specialize in. Ranger is generally agreed to have the best weapons at this stage. However, melee also improves significantly due to melee armors having significantly higher defense than any other class. Magic is still heavily focused on crowd control, making it an effective class for those who want to take out The Destroyer first. Summoners receive Hardmode upgrades earlier than the other classes because Spider equipment can be crafted at an Iron or Lead Anvil. The Sharanga is powerful enough to be useful in Hardmode. 
+
+This is also the point where a fully-defensive build begins to diverge from damage builds thanks to the availability of the Star Veil, coupled with greater access to damage accessories, so it is a good time to decide whether you want to run a primarily offensive or defensive loadout and reforge your accessories accordingly. 
+
+Best
+
+Dao of Pow Obsidian Swordfish [a] 
+
+Ice Sickle
+
+Crowd Control Weapons
+
+Dao of Pow 
+
+General/Offensive
+
+Adamantite Helmet Frost Breastplate Spider Greaves(Old-gen console version) Frost Leggings((3DS version)) 
+
+Defensive
+
+Titanium armor 
+
+Adamantite armor
+
+Accessories
+
+Best
+
+Flask of Ichor Sake(Old-gen console version) 
+
+Flask of Cursed Flames Ale
+
+Best
+
+Adamantite Repeater Titanium Repeater Coin Gun(Gold Coin) [c] Uzi 
+
+Gatligator(Desktop, Console, Old-gen console and Mobile versions) [a] Sharanga(Old-gen console and 3DS versions)
+
+Best
+
+Star Cannon [c] Adamantite Repeater Titanium Repeater 
+
+Uzi(Musket Balls)
+
+General/Offensive
+
+Adamantite Mask Frost Breastplate Adamantite Leggings 
+
+Defensive
+
+Adamantite armor Frost armor
+
+Buffs/Potions
+
+Archery Potion Ammo Reservation Potion Ammo Box(Desktop, Console, Old-gen console and Mobile versions) 
+
+Crystal Bullet [d] Ichor Arrow Heart Arrow(3DS version) 
+
+Cursed Arrow
+
+Jester's Arrow 
+
+Unholy Arrow
+
+Crystal Storm Flower of Frost 
+
+Ice Rod
+
+Cursed Flames Golden Shower 
+
+Laser Rifle
+
+Support Weapons
+
+Nimbus Rod 
+
+Adamantite armor 
+
+Defensive
+
+Titanium armor 
+
+Celestial Cuffs(Old-gen console version) Magic Cuffs((3DS version)) Sorcerer Emblem Mana Flower 
+
+Buffs/Potions
+
+Mana Regeneration Potion Magic Power Potion Crystal Ball 
+
+Best
+
+Spider Staff(Old-gen console version) 
+
+Slime Staff(Only use on Nintendo version. [e])
+
+Sentries
+
+Queen Spider Staff(Old-gen console version) 
+
+Offensive
+
+Spider armor(Old-gen console version) 
+
+Defensive
+
+Titanium Mask Spider Breastplate(Old-gen console version) Spider Greaves(Old-gen console version) 
+
+Buffs/Potions
+
+Summoning Potion 
+
+Pre-Mech Bosses Mixed
+
+Armor
+
+Titanium Mask Frost Breastplate Frost Leggings 
+
+Star Veil 
+
+Ankh Shield Charm of Myths Frozen Turtle Shell
+
+Offensive Accessories
+
+Avenger Emblem 
+
+Mounts
+
+Pigron(Desktop, Console, Old-gen console and Mobile versions) 
+
+Buffs/Potions
+
+Well Fed Greater Healing Potion Horn o' plenty(3DS version) [f] Regeneration Potion Ironskin Potion Swiftness Potion Rage Potion Wrath Potion Heartreach Potion Lifeforce Potion Endurance Potion 
+
+## Pre-Plantera
+
+At this point, players are expected to have chosen between melee, ranged, magic, or a hybrid of summoning and another class. As was the case in previous stages, ranged provides the highest long-distance DPS, melee provides the best tanking ability, magic provides the most unique weapon effects. 
+
+Best
+
+Terra Blade Mushroom Spear 
+
+Death Sickle True Excalibur True Night's Edge Chlorophyte Partisan
+
+Best
+
+Terra Blade Chlorophyte Partisan 
+
+True Excalibur True Night's Edge Death Sickle
+
+Best
+
+Chlorophyte Mask Turtle Scale Mail Turtle Leggings 
+
+Best
+
+Flask of Ichor Sake(Old-gen console version) 
+
+Flask of Cursed Flames Ale
+
+Pre-Plantera Ranged
+
+Best
+
+Megashark(Crystal Bullets) Chlorophyte Shotbow(Holy Arrows) 
+
+Flamethrower
+
+Best
+
+Chlorophyte Shotbow(Chlorophyte Arrows) 
+
+Flamethrower
+
+General/Offensive
+
+Chlorophyte armor 
+
+Defensive
+
+Chlorophyte armor(Mask) 
+
+Hallowed armor
+
+Buffs/Potions
+
+Archery Potion Ammo Reservation Potion Ammo Box(Desktop, Console, Old-gen console and Mobile versions) 
+
+Crystal Bullets [d] Holy Arrows Heart Arrows(3DS version) 
+
+Ichor Arrows
+
+Crowd-Control Ammunition
+
+Chlorophyte Arrows 
+
+Venom Staff(Old-gen console version) Flower of Frost 
+
+Unholy Trident
+
+Best
+
+Venom Staff(Old-gen console version) Cursed Flames Magical Harp 
+
+Unholy Trident
+
+Support Weapons
+
+Nimbus Rod Golden Shower 
+
+Chlorophyte armor 
+
+Defensive
+
+Hallowed Headgear Turtle Scale Mail Turtle Leggings 
+
+Buffs/Potions
+
+Mana Regeneration Potion Magic Power Potion Crystal Ball 
+
+Spider Staff(Old-gen console version)(3x) Optic Staff(Old-gen console version)(Rest of the minion slots) 
+
+Slime Staff(Only use on Nintendo version [e])
+
+Sentries
+
+Queen Spider Staff(Old-gen console version) 
+
+Best
+
+Spider armor(Old-gen console version) 
+
+Buffs/Potions
+
+Summoning Potion 
+
+Pre-Plantera Mixed
+
+General
+
+Chlorophyte armor(Mask) 
+
+Offensive
+
+Spider armor(Old-gen console version) 
+
+Defensive
+
+Chlorophyte Mask Turtle Scale Mail Turtle Leggings 
+
+Ankh Shield Star Veil 
+
+Obsidian Shield Charm of Myths Moon Stone
+
+Avenger Emblem Moon Stone 
+
+Mounts
+
+Pigron(Old-gen console version) 
+
+Buffs/Potions
+
+Well Fed Regeneration Potion Ironskin Potion Swiftness Potion Rage Potion Wrath Potion Heartreach Potion Lifeforce Potion Endurance Potion Greater Healing Potion Horn o' plenty(3DS version) [f] 
+
+## Pre-Golem
+
+With the Hardmode Dungeon and Temple Keys now available, players have access to a variety of new equipment. Furthermore, any Biome Keys you have obtained are now usable. You could attempt to extend the duration of this stage by killing Duke Fishron or summoning the Frost Moon or Pumpkin Moon, but most players will find it easier and more logical to kill Golem first. 
+
+The transition from pre-Plantera to post-Plantera comes with a significant improvement to the equipment available, with the most prominent new items being melee weapons (Vampire Knives) and magic armor (Spectre armor). The classes are very balanced at this stage. 
+
+Best
+
+Terra Blade Vampire Knives 
+
+Scourge of the Corruptor
+
+Best
+
+Chlorophyte Mask Turtle Scale Mail Turtle Leggings 
+
+Hallowed armor
+
+Accessories
+
+Warrior Emblem Mechanical Glove Fire Gauntlet [b] 
+
+Flask of Ichor Sake(Old-gen console version) 
+
+Flask of Venom Ale
+
+Pre-Golem Ranged
+
+Chlorophyte Shotbow 
+
+Sniper Rifle Piranha Gun Venus Magnum
+
+Pulse Bow(Desktop, Console, Old-gen console and Mobile versions)(Venom Arrows) 
+
+Piranha Gun Tactical Shotgun
+
+Armor
+
+Shroomite armor Adamantite Mask to be used with Rockets 
+
+Buffs/Potions
+
+Archery Potion Ammo Reservation Potion Ammo Box(Old-gen console version) 
+
+Heart Arrows(3DS version) Crystal Bullets [d] Holy Arrows 
+
+Chlorophyte Bullets Venom Arrows Ichor Arrows
+
+Rocket IIIs Chlorophyte Arrows 
+
+General/Offensive
+
+Spectre armor(Mask) 
+
+Defensive
+
+Spectre armor(Hood) 
+
+Buffs/Potions
+
+Mana Regeneration Potion Magic Power Potion Crystal Ball 
+
+Best
+
+Optic Staff(Old-gen console version) 
+
+Pygmy Staff
+
+Sentries [g] 
+
+Staff of the Frost Hydra Queen Spider Staff(Old-gen console version) 
+
+General/Offensive
+
+Tiki armor 
+
+Armor
+
+Chlorophyte Mask Turtle Scale Mail Turtle Leggings 
+
+Star Veil 
+
+Master Ninja Gear [h] Charm of Myths Paladin's Shield Moon Stone Ankh Shield
+
+Offensive Accessories
+
+Avenger Emblem 
+
+Buffs/Potions
+
+Well Fed Ironskin Potion Endurance Potion Rage Potion Wrath Potion Regeneration Potion Lifeforce Potion Gravitation Potion Greater Healing Potion Horn o' plenty(3DS version) [f] 
+
+## Endgame
+
+Once Golem, Duke Fishron, and Ocram have all been defeated, the player is considered to be in the endgame. 
+
+Flairon Vampire Knives Terra Blade 
+
+North Pole The Horseman's Blade
+
+General/Defensive
+
+Dragon Mask Beetle Shell Beetle Leggings 
+
+Offensive
+
+Beetle armor(Scale Mail) 
+
+Dragon armor
+
+Best
+
+Flask of Ichor Sake(Old-gen console version) 
+
+Flask of Venom Ale
+
+Best
+
+Elf Melter(with Shroomite Helmet) Sniper Rifle Piranha Gun(with Shroomite Helmet) Chain Gun
+
+Snowman Cannon Stake Launcher Tsunami(Holy Arrows) 
+
+Piranha Gun(with Shroomite Helmet) Elf Melter(with Shroomite Helmet)
+
+Titan Helmet Shroomite Breastplate Shroomite Leggings 
+
+Hallowed Helmet(for rocket weapons and weapons of all types) OR Shroomite Headgear(for arrow weapons) OR Shroomite Mask(for bullet weapons) Shroomite Breastplate Titan Leggings OR Tiki Pants 
+
+Ranger Emblem Magic Quiver
+
+Swiftness Potion Archery Potion Ammo Reservation Potion Ammo Box(Desktop, Console, Old-gen console and Mobile versions) 
+
+Best
+
+Heart Arrows(3DS version) Crystal Bullets [d] Chlorophyte Bullets Holy Arrows Rocket IIIs 
+
+Holy Arrows Rocket IIIs 
+
+Spectral armor 
+
+Spectre armor(Mask)
+
+Mana Regeneration Potion Magic Power Potion Crystal Ball 
+
+Both the Spectre Mask and Spectre Hood are useful for offense and defense, respectively. 
+
+Best
+
+Raven Staff 
+
+Tempest Staff
+
+Sentries [g] 
+
+Queen Spider Staff(Desktop, Console, Old-gen console and Mobile versions) Staff of the Frost Hydra 
+
+Spooky armor Tiki armor 
+
+Ankh Shield Master Ninja Gear [h] Paladin's Shield Celestial Stone Sun Stone or Moon Stone Charm of Myths
+
+Celestial Stone Sun Stone or Moon Stone Destroyer Emblem 
+
+Mounts
+
+Rudolph 
+
+Buffs/Potions
+
+Well Fed Ironskin Potion Endurance Potion Rage Potion Wrath Potion Regeneration Potion Lifeforce Potion Gravitation Potion Greater Healing Potion Horn o' plenty(3DS version) [f] 
+
+## Other
+
+For cosplay setups, see Guide:Ideas § Cosplay. 
+
+Some equipment sets are not meant for fighting, but for other activities, such as fishing, building and exploring. All equipment is optional and makes it easier to perform the task, but otherwise simply use what is at hand. 
+
+Wiring
+
+The Mechanic NPC unlocks wiring, selling the basic tools. 
+
+Tools
+
+Wrenches Wire Cutter Wire and other wiring items 
+
+Summoner gear might prove useful to defend against enemies while engineering. 
+
+Spectre Paintbrush(Old-gen console version) Spectre Paint Roller(Old-gen console version) Spectre Paint Scraper(Old-gen console version) Wrenches Wire Cutter Wire and other wiring items Ice Rod 
+
+Potions
+
+Builder Potion(Old-gen console version) 
+
+Summoner gear is useful for defending against enemies while building. 
+
+Summoner gear might prove useful to defend against enemies while fishing. 
+
+Finding Ores
+
+Potions
+
+Dangersense Potion(Old-gen console version) Flipper Potion(Old-gen console version) Gravitation Potion Mining Potion(Old-gen console version) Night Owl Potion Obsidian Skin Potion Shine Potion Spelunker Potion Water Walking Potion Teleportation Potion Recall Potion Calming Potion 
+
+Fairy Bell
+
+## Footnotes
+
+1. ↑ 1.0 1.1 1.2 Most effective on a tank build
+2. ↑ 2.0 2.1 2.2 2.3 The Fire Gauntlet has 3% less melee damage and speed than the Mechanical Glove. Combined with the fact that it is slightly harder to craft than the Mechanical Glove, it should be only used when the player wants more offensive power and already has a Mechanical Glove equipped.
+3. ↑ 3.0 3.1 Due to this weapon's high ammo cost, it should be used with Adamantite armor for its ammo conversation.
+4. ↑ 4.0 4.1 4.2 4.3 Highest single-target DPS
+5. ↑ 5.0 5.1 It is the only summon weapon available until the player has defeated Duke Fishron or Plantera.
+6. ↑ 6.0 6.1 6.2 6.3 The Horn o' plenty is better than Greater Healing Potions if the player has trouble getting the Potions because the Horn is not consumed upon usage, otherwise Greater Healing Potions are better due to the fact that they grant 30 more health than the Horn o' plenty.
+7. ↑ 7.0 7.1 While it is impossible to have 2 Frost Hydras (or 2 Queen Spiders) active at the same time, it is possible to have both a Frost Hydra and a Queen Spider active at the same time, hence the player should summon both the Frost Hydra and the Queen Spider.
+8. ↑ 8.0 8.1 The Black Belt is an alternative. The Master Ninja Gear and the Black Belt do not stack.
+9. ↑ To maximize the effectiveness of one's minions, one should summon all of their minions while wearing Spooky armor, and then summon an additional minion while wearing Tiki armor
+
+1. ↑ https://forums.terraria.org/index.php?threads/journeys-end-1-4-official-item-balance-feedback-and-discussion-thread.88978/post-1995397

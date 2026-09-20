@@ -1,0 +1,118 @@
+Items: {
+	RiftSigil: {
+		DisplayName: Rift Sigil
+		Tooltip:
+			'''
+			Use at a Rift Gate to open an unstable pocket world
+			The rift is rebuilt from nothing every time it opens
+			'''
+	}
+
+	RiftEssence: {
+		DisplayName: Rift Essence
+		Tooltip: Residue scraped out of a collapsing rift
+	}
+
+	RiftwovenBlade: {
+		DisplayName: Riftwoven Blade
+		Tooltip: Cut from the edge of somewhere that no longer exists
+	}
+
+	MapDeviceItem: {
+		DisplayName: Rift Gate
+		Tooltip: Place it in the Hold, then right click it holding a Rift Sigil
+	}
+}
+
+Tiles: {
+	MapDeviceTile.MapEntry: Rift Gate
+}
+
+NPCs: {
+	RiftHusk: {
+		DisplayName: Rift Husk
+	}
+
+	RiftStalker: {
+		DisplayName: Rift Stalker
+	}
+
+	RiftWarden: {
+		DisplayName: Rift Warden
+	}
+}
+
+Subworlds: {
+	RiftSubworld: {
+		DisplayName: Unstable Rift
+	}
+}
+
+Progression: {
+	LevelUp: "{0} reached level {1}."
+	Experience: Experience
+	Level: "Level {0}"
+	UnspentPoints: "{0} points to spend"
+	Locked: Locked
+	RequiresLevel: "Requires level {0}"
+	RequiresNode: "Requires {0} rank {1}"
+}
+
+Stats: {
+	Might: {
+		Name: Might
+		Description: "+{0}% damage"
+	}
+
+	Vitality: {
+		Name: Vitality
+		Description: "+{0} maximum life"
+	}
+
+	Hardened: {
+		Name: Hardened
+		Description: "+{0} defense"
+	}
+
+	Precision: {
+		Name: Precision
+		Description: "+{0}% critical strike chance"
+	}
+
+	Fleetfoot: {
+		Name: Fleetfoot
+		Description: "+{0}% movement speed"
+	}
+}
+
+Rift: {
+	Title: "Tier {0} Rift"
+	Requirement: "Requires level {0}"
+	NoSigil: You are not carrying a Rift Sigil.
+	LevelTooLow: "That rift needs level {0}."
+	NotInHold: Rift Gates only work inside the Hold.
+	AlreadyInRift: You are already inside a rift.
+	Opening: "Opening a tier {0} rift..."
+	Entered: "Tier {0} rift. Find the Warden."
+	Cleared: Rift stabilised. Returning to the Hold.
+	Failed: The rift collapsed around you.
+	ObjectiveAlive: Rift Warden
+	ObjectiveDirection: "The Warden waits {0} blocks {1}."
+	East: east
+	West: west
+	ReturningIn: "Returning in {0}s"
+}
+
+Hub: {
+	Grown: The Hold has grown.
+	StageName: "Hold stage {0}"
+}
+
+UI: {
+	StatPanelTitle: Character
+	Close: Close
+	Spend: +
+	RiftGateTitle: Rift Gate
+	NoSigils: No sigils in your inventory.
+	Enter: Enter
+}
