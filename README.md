@@ -13,7 +13,29 @@ Rifthold replaces the open world with a hub-and-runs loop:
 
 ## Status
 
-This is an unverified first implementation. Every system in the MVP plan is written, but **none of it has been compiled or run** — the machine it was written on has neither Terraria nor the .NET SDK. Treat the first in-game build as a debugging session, not a smoke test. See [docs/build-and-test.md](docs/build-and-test.md) for the checklist.
+**Paused mid-build, and it does not compile yet.** Work stopped deliberately to go back to planning, so this is a partial implementation, not a finished MVP.
+
+Nothing here has ever been compiled or run: it was written on a machine with neither Terraria nor the .NET SDK. Treat the first in-game build as a debugging session, not a smoke test.
+
+Written and committed:
+
+- Mod skeleton, `build.txt` with the SubworldLibrary dependency, localization, placeholder sprites
+- Tier table, run state, XP curve, stat node tree
+- Per-character progression with save/load and sync hooks
+- Hub world generation (vanilla passes disabled, sealed Hold built from scratch)
+- Rift subworld, seed pass, and the room-and-corridor layout generator
+- Mining, placement, explosion and gravestone lockdown
+- Rift Sigils, Rift Essence, Rift Gate tile, reward weapon
+- Rift enemies, the Rift Warden boss, spawn control, completion and rewards
+- Experience HUD, character panel, Rift Gate selector
+- `/rift` developer commands
+
+Not written yet, and referenced by code that is:
+
+- `HubGrowthSystem` — the hub growth stages. `RiftCommand` calls it, so **the mod will not build until this exists**.
+- `Rifthold.Networking.cs` — `Mod.HandlePacket`. Packets are sent for progression, point spending and run completion, but nothing receives them, so multiplayer will not work.
+- The multiplayer pass generally: party entry rules, server-authoritative validation, dedicated server testing.
+- `docs/build-and-test.md` — the first-build checklist.
 
 ## Requirements
 
@@ -48,17 +70,18 @@ Delete a placeholder and drop in real art of the same dimensions to replace it. 
 ```
 Rifthold/
   Rifthold.cs                  Mod entry point
-  Rifthold.Networking.cs       Packet routing
   build.txt                    Metadata and the SubworldLibrary dependency
   Common/
     Commands/                  /rift developer commands
+    Items/                     Tool and placeable lockdown
     Maps/                      Tier table and run state
     Net/                       Packet ids
     Players/                   Per-character progression
     Progression/               XP curve and the stat node tree
-    Systems/                   Worldgen, hub growth, spawning, run lifecycle
-    Tiles/                     Mining and placement lockdown
-    World/                     The world-edit policy
+    Rewards/                   Completion payout and per-kill experience
+    Systems/                   Worldgen, gateway, spawning, run lifecycle
+    Tiles/                     Mining, placement and gravestone lockdown
+    World/                     World-edit policy, hub and rift geometry
   Content/
     Items/  NPCs/  Tiles/      Game content
     Subworlds/                 The rift subworld and its generation passes
