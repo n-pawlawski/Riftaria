@@ -108,6 +108,10 @@ Hub: {
 	StageName: "Hold stage {0}"
 }
 
+Keybind: {
+	CharacterPanel: Character Panel
+}
+
 UI: {
 	StatPanelTitle: Character
 	Close: Close

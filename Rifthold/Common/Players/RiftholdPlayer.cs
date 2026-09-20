@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -57,6 +58,28 @@ namespace Rifthold.Common.Players
 			ranks[node.Id] = RankOf(node.Id) + 1;
 			UnspentPoints--;
 			return true;
+		}
+
+		/// <summary>
+		/// Spends a point from the UI. In multiplayer the client only asks; the
+		/// server owns progression so a modified client cannot grant itself ranks.
+		/// </summary>
+		public void RequestSpend(StatNode node)
+		{
+			if (node == null) {
+				return;
+			}
+
+			if (Main.netMode == NetmodeID.SinglePlayer) {
+				TrySpendPoint(node);
+				return;
+			}
+
+			ModPacket packet = Mod.GetPacket();
+			packet.Write((byte)RiftholdPacketType.RequestSpendPoint);
+			packet.Write((byte)Player.whoAmI);
+			packet.Write(node.Id);
+			packet.Send();
 		}
 
 		/// <summary>
@@ -193,6 +216,13 @@ namespace Rifthold.Common.Players
 			}
 
 			vanilla.RemoveAll(item => item.pick > 0 || item.axe > 0 || item.hammer > 0);
+		}
+
+		public override void ProcessTriggers(TriggersSet triggersSet)
+		{
+			if (Rifthold.CharacterPanelKey?.JustPressed == true) {
+				ModContent.GetInstance<UI.StatPanelSystem>().Toggle();
+			}
 		}
 
 		public override void SyncPlayer(int toWho, int fromWho, bool newPlayer)
