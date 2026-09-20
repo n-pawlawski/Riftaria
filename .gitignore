@@ -9,3 +9,6 @@ obj/
 .DS_Store
 Thumbs.db
 *.swp
+
+# Scratch output from agent web fetches
+agent-tools/
