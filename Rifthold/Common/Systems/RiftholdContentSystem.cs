@@ -1,6 +1,8 @@
 using Terraria.ModLoader;
 using Rifthold.Common.Maps;
 using Rifthold.Common.Progression;
+using Rifthold.Common.World;
+using Rifthold.Content.Tiles;
 
 namespace Rifthold.Common.Systems
 {
@@ -11,6 +13,10 @@ namespace Rifthold.Common.Systems
 		{
 			StatTree.LoadDefaults();
 			RiftTierRegistry.LoadDefaults();
+
+			// The only thing a player is allowed to build. Everything else, including
+			// every vanilla block, stays locked for the MVP.
+			WorldEditPolicy.AllowPlacement(ModContent.TileType<MapDeviceTile>());
 		}
 	}
 }
