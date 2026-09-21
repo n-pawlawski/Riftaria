@@ -66,6 +66,28 @@ Gate Panel stays the single place a tier is chosen.
 A map item is the intention for later, not a rejected option. Adding it would revive
 the Keys and Map Items system, which is currently parked.
 
+### Encounters — spawners, not ambient spawning
+
+Vanilla ambient spawning is switched off entirely inside rifts. Nothing appears simply
+because a player walked somewhere.
+
+Enemies come from spawners: fixed points placed by generation, each emitting on an
+interval. A spawner carries a pool drawn from the tier's biome, an interval, a cap on
+how many of its own may be alive at once, and an activation radius so the far side of
+the rift stays quiet while you fight the near side.
+
+The boss is the same mechanism with a count of one and a trigger instead of an
+interval.
+
+Deliberately simple. Waves, destructible spawners and finite budgets are all later.
+
+This settles the older question of bespoke versus re-pooled enemies in favour of
+re-pooled: the pool comes from the tier's biome, which vanilla already populates.
+
+Note for whenever implementation resumes: the prototype `RiftSpawnSystem` throttles and
+filters vanilla spawning rather than replacing it. Under this model it should suppress
+vanilla spawning outright and own a list of spawners instead.
+
 ---
 
 ## Open
@@ -77,6 +99,11 @@ the Keys and Map Items system, which is currently parked.
 - Is gear a fixed item per tier, or a pool to roll from?
 - Is there any reason to repeat a cleared tier once the next one is open?
 - How many of the ten tiers does the first playable ship with?
+- **Spawners on an interval are an infinite loot faucet.** Enemies drop loot and
+  spawners never stop, so standing next to one farms rewards indefinitely. This
+  collides with the loot model, where the boss is supposed to be the payout that
+  matters. Ways out, none chosen: give each spawner a finite budget, let the player
+  destroy spawners, or taper drops the longer a rift runs.
 
 ---
 
@@ -122,3 +149,34 @@ Three systems are no longer blocked and move from Open to Shaped (`#067429`):
 
 - Keys and Map Items line in `3458764684381846734` → change from a conditional revival
   to a stated intention, since a map item is now planned rather than merely possible.
+
+### Queued 21 September, evening
+
+**System / Encounters** (`3458764684378310138`, at 1756, 5400)
+
+Child element IDs not yet read; read the frame before editing.
+
+- Subtitle → "What you fight on the way, and where it comes from."
+- How it works → vanilla ambient spawning off inside rifts; enemies come from spawners
+  placed by generation; a spawner carries a pool from the tier's biome, an interval, a
+  cap on its own live enemies, and an activation radius; the boss is the same mechanism
+  with a count of one and a trigger; simple on purpose, with waves and destructible
+  spawners left for later.
+- Interacts with → add Boss Adapters alongside Rift Generation.
+
+**System / Rift Generation** (`3458764684378270263`)
+
+- How it works `3458764684378270293` → generation now also places spawners, so add that
+  to the list of what a tier controls.
+
+**System and Loop Matrix** (`3458764684378900897`)
+
+- Encounters, status `3458764684378957952` → Shaped (`#067429`), assuming the loot
+  faucet question below is treated as tuning rather than a blocker.
+- Footer `3458764684378957987` → "Ten shaped, two open, one deferred", leaving World
+  Edit Rules and Multiplayer as the only Open entries.
+
+**Reward Tables** (`3458764684382508230`)
+
+- Add the loot faucet conflict to the STILL OPEN list (`3458764684384272807`), since it
+  is a reward problem as much as a spawning one.
