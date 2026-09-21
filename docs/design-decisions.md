@@ -76,10 +76,19 @@ interval. A spawner carries a pool drawn from the tier's biome, an interval, a c
 how many of its own may be alive at once, and an activation radius so the far side of
 the rift stays quiet while you fight the near side.
 
+Spawners are destructible. Killing one stops its flow permanently, which gives a room a
+reason to be fought rather than run past, and gives the rift a second verb alongside
+reaching the far end.
+
+A spawner should be a stationary NPC rather than a tile. That keeps mining fully
+disabled with no allowlist exception, and inherits health bars, damage numbers and
+death effects from vanilla for free. A destructible tile would have meant reaching for
+a pickaxe, which cuts against the whole point of World Edit Rules.
+
 The boss is the same mechanism with a count of one and a trigger instead of an
 interval.
 
-Deliberately simple. Waves, destructible spawners and finite budgets are all later.
+Deliberately simple. Waves and finite per-spawner budgets are later.
 
 This settles the older question of bespoke versus re-pooled enemies in favour of
 re-pooled: the pool comes from the tier's biome, which vanilla already populates.
@@ -99,11 +108,21 @@ vanilla spawning outright and own a list of spawners instead.
 - Is gear a fixed item per tier, or a pool to roll from?
 - Is there any reason to repeat a cleared tier once the next one is open?
 - How many of the ten tiers does the first playable ship with?
-- **Spawners on an interval are an infinite loot faucet.** Enemies drop loot and
-  spawners never stop, so standing next to one farms rewards indefinitely. This
-  collides with the loot model, where the boss is supposed to be the payout that
-  matters. Ways out, none chosen: give each spawner a finite budget, let the player
-  destroy spawners, or taper drops the longer a rift runs.
+
+---
+
+## Parked — settled for now, not forever
+
+- **Farming a spawner.** An undestroyed spawner emits forever and its enemies drop
+  loot, so a player who wants to farm one can. Making spawners destructible means the
+  normal way of playing removes the faucet, so this is self-limiting rather than
+  solved, and that is accepted for now. Comes back if rifts turn out to be worth
+  grinding rather than finishing, at which point a finite budget per spawner or drops
+  that taper over a run are the levers.
+- **Whether destroying spawners is optional.** Right now the objective is still just to
+  reach the far end, so clearing a room is a choice. Requiring every spawner dead
+  before the arena opens is available later if runs feel like sprints.
+- **Whether spawners drop anything themselves.** Unresolved and deliberately ignored.
 
 ---
 
@@ -159,10 +178,16 @@ Child element IDs not yet read; read the frame before editing.
 - Subtitle → "What you fight on the way, and where it comes from."
 - How it works → vanilla ambient spawning off inside rifts; enemies come from spawners
   placed by generation; a spawner carries a pool from the tier's biome, an interval, a
-  cap on its own live enemies, and an activation radius; the boss is the same mechanism
-  with a count of one and a trigger; simple on purpose, with waves and destructible
-  spawners left for later.
+  cap on its own live enemies, and an activation radius; spawners are destructible
+  stationary NPCs, so killing one ends its flow; the boss is the same mechanism with a
+  count of one and a trigger; simple on purpose, with waves and finite budgets later.
 - Interacts with → add Boss Adapters alongside Rift Generation.
+
+**System / World Edit Rules** (`3458764684378270266`)
+
+- No change needed, but worth a line confirming it: spawners are NPCs rather than
+  tiles, so destroying them needs no mining exception and the no-mining rule holds
+  without qualification.
 
 **System / Rift Generation** (`3458764684378270263`)
 
