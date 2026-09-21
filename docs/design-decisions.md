@@ -66,6 +66,30 @@ Gate Panel stays the single place a tier is chosen.
 A map item is the intention for later, not a rejected option. Adding it would revive
 the Keys and Map Items system, which is currently parked.
 
+### World Edit Rules — off by default, whitelists on both sides
+
+The rule applies everywhere, the Hold included. No hub exception for now.
+
+Mining and placement are both off by default, each with a per-tile whitelist. Both
+mechanisms already exist in `WorldEditPolicy` as `AllowMining` and `AllowPlacement`;
+what is missing is entries, not machinery. The Rift Gate is the only current member of
+either list.
+
+Guiding rule for the placement whitelist: allow what helps a player see and survive,
+refuse what reshapes the layout. Torches, campfires and heart lanterns qualify. Blocks,
+platforms and ropes do not, because they bypass authored traversal — which is the
+entire reason the rule exists. Beds are out too, since setting a spawn point inside a
+rift would defeat returning to the Hold on death.
+
+Two things to fix when the lists get populated:
+
+- Anything placeable must also be mineable, or it is permanent. A whitelisted torch
+  that cannot be broken can never be picked back up, and every rift slowly fills with
+  litter the player cannot clear.
+- Walls cannot be whitelisted at all. `NoMiningGlobalWall` consults the global switches
+  rather than a per-type list, unlike the tile hooks. The asymmetry is harmless while
+  both lists are empty and becomes a bug as soon as they are not.
+
 ### Encounters — spawners, not ambient spawning
 
 Vanilla ambient spawning is switched off entirely inside rifts. Nothing appears simply
@@ -108,6 +132,9 @@ vanilla spawning outright and own a list of spawners instead.
 - Is gear a fixed item per tier, or a pool to roll from?
 - Is there any reason to repeat a cleared tier once the next one is open?
 - How many of the ten tiers does the first playable ship with?
+- Which tiles go on each whitelist. Torches are the only confirmed member so far, and
+  the mining list has no members at all beyond the intention to have some.
+- Liquids are not covered by any of the hooks, so a bucket can still reshape hazards.
 
 ---
 
@@ -123,6 +150,11 @@ vanilla spawning outright and own a list of spawners instead.
   reach the far end, so clearing a room is a choice. Requiring every spawner dead
   before the arena opens is available later if runs feel like sprints.
 - **Whether spawners drop anything themselves.** Unresolved and deliberately ignored.
+- **Tool-weapons cannot be used at all.** `ToolLockGlobalItem` refuses any item with
+  pick, axe or hammer power, so drills, chainsaws, the Picksaw and the axes and hammers
+  that double as early weapons cannot be swung at an enemy either. Accepted for now.
+  Comes back if vanilla items get re-weighted into the loot tables, since a few would
+  arrive unusable; the fix is to block the digging action rather than the item.
 
 ---
 
@@ -185,9 +217,21 @@ Child element IDs not yet read; read the frame before editing.
 
 **System / World Edit Rules** (`3458764684378270266`)
 
-- No change needed, but worth a line confirming it: spawners are NPCs rather than
-  tiles, so destroying them needs no mining exception and the no-mining rule holds
-  without qualification.
+Child element IDs not yet read; read the frame before editing.
+
+- How it works → the rule applies in the Hold as well as in rifts; mining and placement
+  are each off by default with a per-tile whitelist; the placement whitelist admits
+  what helps a player see and survive but not what reshapes the layout; spawners are
+  NPCs rather than tiles, so destroying them needs no exception and the no-mining rule
+  holds without qualification.
+- Status `3458764684378957947` → Shaped (`#067429`). The mechanism is settled and only
+  the whitelist contents remain, which is content rather than a blocking decision.
+
+**System and Loop Matrix**, revised totals
+
+With Encounters and World Edit Rules both moving, the footer
+`3458764684378957987` should read "Eleven shaped, one open, one deferred", leaving
+Multiplayer as the only Open entry.
 
 **System / Rift Generation** (`3458764684378270263`)
 
