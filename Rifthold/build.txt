@@ -1,9 +1,0 @@
-displayName = Rifthold
-author = Rifthold Team
-version = 0.1
-homepage =
-modReferences = SubworldLibrary
-hideCode = false
-hideResources = false
-includeSource = true
-buildIgnore = *.csproj, *.user, *.sln, obj\*, bin\*, .vs\*, lib\*, *.md

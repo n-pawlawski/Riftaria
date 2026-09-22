@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\tModLoader.targets" />
+  <PropertyGroup>
+    <AssemblyName>Riftaria</AssemblyName>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <!--
+    tModLoader supplies the Subworld Library reference at build time from the
+    modReferences entry in build.txt. This extra reference exists only so the
+    IDE resolves the API. Drop SubworldLibrary.dll (and the matching .xml) into
+    lib/ to get IntelliSense; see README for where to download it.
+  -->
+  <ItemGroup Condition="Exists('lib\SubworldLibrary.dll')">
+    <Reference Include="SubworldLibrary">
+      <HintPath>lib\SubworldLibrary.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,7 @@
+Riftaria replaces the open Terraria world with a persistent hub and a run-based loop.
+
+You live in the Hold, a small sealed base. Rift Sigils open unstable pocket worlds that are generated fresh every time you enter. Fight to the Rift Warden at the far end, kill it, and carry the loot and experience home. Deeper rifts drop the sigils for the tier above them.
+
+Blocks cannot be mined. The layout in front of you is the level, and gear comes from rifts rather than from ore.
+
+Requires Subworld Library.

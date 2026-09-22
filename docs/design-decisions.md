@@ -1,4 +1,4 @@
-# Rifthold — design decisions
+# Riftaria — design decisions
 
 The Miro board is the working planning surface. This file is the durable record of
 decisions that have been settled there, plus a queue of board edits that have not

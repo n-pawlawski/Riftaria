@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate placeholder PNG sprites for Rifthold.
+"""Generate placeholder PNG sprites for Riftaria.
 
 tModLoader refuses to load an item, NPC, or tile whose texture is missing, so
 the mod needs a PNG beside every content class before it will even start. These
@@ -23,7 +23,7 @@ import struct
 import zlib
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir)
-MOD = os.path.join(ROOT, "Rifthold")
+MOD = os.path.join(ROOT, "Riftaria")
 
 
 def write_png(path: str, width: int, height: int, pixels: bytearray) -> None:
@@ -106,7 +106,7 @@ def placeholder(
     return pixels
 
 
-# path relative to the Rifthold mod folder -> (width, height, rgb, frames, margin)
+# path relative to the Riftaria mod folder -> (width, height, rgb, frames, margin)
 SPRITES = {
     "icon.png": (80, 80, (120, 80, 190), 1, 0),
     "icon_small.png": (30, 30, (120, 80, 190), 1, 0),

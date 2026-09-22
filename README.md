@@ -1,19 +1,25 @@
-# Rifthold
+# Riftaria
 
-A **Terraria** mod built on **tModLoader 1.4.4**. `Rifthold` is a working title and can be renamed.
+A **Terraria** mod built on **tModLoader 1.4.4**.
 
-Rifthold replaces the open world with a hub-and-runs loop:
+Riftaria replaces the open world with a hub-and-runs loop:
 
-1. You live in **the Hold**, a small sealed hub that grows as you progress.
-2. **Rift Sigils** used at a **Rift Gate** open an instanced pocket world, generated fresh every time.
-3. You fight to the **Rift Warden** at the far end and kill it.
-4. Loot, essence and experience come home with you. Deeper rifts drop the sigils for the tier above.
+1. You live in **the Hold**, a small sealed hub.
+2. A **Rift Gate** opens an instanced pocket world, generated fresh every time, at any tier you have unlocked.
+3. Enemies come from **destructible spawners** rather than ambient spawning. You fight along the layout to the far end.
+4. A boss holds the far end. Killing it unlocks the next tier and sends you home with the loot.
 
-**Blocks cannot be mined or placed.** The generated layout is the level, and gear comes from rifts rather than ore.
+There are **ten tiers**, one per section of the vanilla game, from pre-boss through Moon Lord. Loot comes from chests, enemy drops and the boss, and vanilla drop tables are replaced rather than extended.
+
+**Blocks cannot be mined or placed**, in the Hold as well as in rifts, beyond a small whitelist. The generated layout is the level, and gear comes from rifts rather than ore.
 
 ## Status
 
-**Paused mid-build, and it does not compile yet.** Work stopped deliberately to go back to planning, so this is a partial implementation, not a finished MVP.
+**This is a planning project right now.** The design lives in [docs/design-decisions.md](docs/design-decisions.md) and on a Miro board; the code below was written before several of those decisions and has not caught up.
+
+Where the code and the design disagree, the design is current. The largest gaps: the prototype gates rifts behind **Rift Sigil** items and awards **XP and stat points**, both of which have since been replaced by plain tier unlocks; it ships a custom **Rift Warden** boss where the design now calls for vanilla bosses with per-tier adapters; and it throttles vanilla spawning where the design calls for replacing it with spawners.
+
+**It also does not compile yet.** Work stopped deliberately to go back to planning, so this is a partial implementation, not a finished MVP.
 
 Nothing here has ever been compiled or run: it was written on a machine with neither Terraria nor the .NET SDK. Treat the first in-game build as a debugging session, not a smoke test.
 
@@ -33,7 +39,7 @@ Written and committed:
 Not written yet, and referenced by code that is:
 
 - `HubGrowthSystem` — the hub growth stages. `RiftCommand` calls it, so **the mod will not build until this exists**.
-- `Rifthold.Networking.cs` — `Mod.HandlePacket`. Packets are sent for progression, point spending and run completion, but nothing receives them, so multiplayer will not work.
+- `Riftaria.Networking.cs` — `Mod.HandlePacket`. Packets are sent for progression, point spending and run completion, but nothing receives them, so multiplayer will not work.
 - The multiplayer pass generally: party entry rules, server-authoritative validation, dedicated server testing.
 - `docs/build-and-test.md` — the first-build checklist.
 
@@ -46,14 +52,14 @@ Not written yet, and referenced by code that is:
 ## Running it
 
 1. Subscribe to Subworld Library on the Steam Workshop.
-2. Copy or symlink the `Rifthold/` folder in this repo into your tModLoader `ModSources` directory:
-   - Windows: `Documents\My Games\Terraria\tModLoader\ModSources\Rifthold`
-   - Linux: `~/.local/share/Terraria/tModLoader/ModSources/Rifthold`
-   - macOS: `~/Library/Application Support/Terraria/tModLoader/ModSources/Rifthold`
-3. In tModLoader: **Workshop → Develop Mods → Rifthold → Build + Reload**.
+2. Copy or symlink the `Riftaria/` folder in this repo into your tModLoader `ModSources` directory:
+   - Windows: `Documents\My Games\Terraria\tModLoader\ModSources\Riftaria`
+   - Linux: `~/.local/share/Terraria/tModLoader/ModSources/Riftaria`
+   - macOS: `~/Library/Application Support/Terraria/tModLoader/ModSources/Riftaria`
+3. In tModLoader: **Workshop → Develop Mods → Riftaria → Build + Reload**.
 4. Create a new world. Worldgen is replaced wholesale, so an existing world will not work.
 
-For IDE IntelliSense, drop `SubworldLibrary.dll` and `SubworldLibrary.xml` into `Rifthold/lib/`. The `.csproj` picks them up if present and ignores them if not; tModLoader itself resolves the reference from `modReferences` in `build.txt`.
+For IDE IntelliSense, drop `SubworldLibrary.dll` and `SubworldLibrary.xml` into `Riftaria/lib/`. The `.csproj` picks them up if present and ignores them if not; tModLoader itself resolves the reference from `modReferences` in `build.txt`.
 
 ### Placeholder art
 
@@ -68,8 +74,8 @@ Delete a placeholder and drop in real art of the same dimensions to replace it. 
 ## Layout
 
 ```
-Rifthold/
-  Rifthold.cs                  Mod entry point
+Riftaria/
+  Riftaria.cs                  Mod entry point
   build.txt                    Metadata and the SubworldLibrary dependency
   Common/
     Commands/                  /rift developer commands
@@ -87,7 +93,7 @@ Rifthold/
     Subworlds/                 The rift subworld and its generation passes
   UI/                          XP bar, character panel, rift gate panel
   Localization/
-docs/                          Research brief and build/test checklist
+docs/                          Design decisions, research brief, build/test checklist
 tools/                         Placeholder sprite generator
 ```
 
@@ -107,5 +113,7 @@ Typed in chat:
 | `/rift where` | Report the current world |
 
 ## Background
+
+[docs/design-decisions.md](docs/design-decisions.md) is the durable record of what has been settled, what is parked, and what is still open.
 
 [docs/terraria-modding-brief.md](docs/terraria-modding-brief.md) covers the tModLoader stack, content types, asset licensing, and what is and is not allowed to ship.
