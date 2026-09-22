@@ -15,32 +15,29 @@ There are **ten tiers**, one per section of the vanilla game, from pre-boss thro
 
 ## Status
 
-**This is a planning project right now.** The design lives in [docs/design-decisions.md](docs/design-decisions.md) and on a Miro board; the code below was written before several of those decisions and has not caught up.
+**Working towards a first playable**, scoped on the Miro board and recorded in [docs/design-decisions.md](docs/design-decisions.md). The target is the smallest build that proves the loop: the Hold generates, a Rift Gate opens a rift, one thing in it dies, and you come back with the next tier unlocked.
 
-Where the code and the design disagree, the design is current. The largest gaps: the prototype gates rifts behind **Rift Sigil** items and awards **XP and stat points**, both of which have since been replaced by plain tier unlocks; it ships a custom **Rift Warden** boss where the design now calls for vanilla bosses with per-tier adapters; and it throttles vanilla spawning where the design calls for replacing it with spawners.
+The prototype has been cut back to match that scope. Rift Sigils, the XP curve, the stat tree, the stat panel and the experience bar are gone — they implemented decisions that have since been reversed. Two knowingly temporary things remain: the **Rift Warden** stands in for a real boss until Boss Adapters exist, and enemies still use vanilla-style spawning rather than spawners.
 
-**It also does not compile yet.** Work stopped deliberately to go back to planning, so this is a partial implementation, not a finished MVP.
+**It has never been compiled.** Written on a machine with neither Terraria nor the .NET SDK, so the first in-game build should be treated as a debugging session rather than a smoke test.
 
-Nothing here has ever been compiled or run: it was written on a machine with neither Terraria nor the .NET SDK. Treat the first in-game build as a debugging session, not a smoke test.
-
-Written and committed:
+Written:
 
 - Mod skeleton, `build.txt` with the SubworldLibrary dependency, localization, placeholder sprites
-- Tier table, run state, XP curve, stat node tree
-- Per-character progression with save/load and sync hooks
-- Hub world generation (vanilla passes disabled, sealed Hold built from scratch)
+- Hub world generation — vanilla passes disabled, a sealed Hold built from scratch
 - Rift subworld, seed pass, and the room-and-corridor layout generator
-- Mining, placement, explosion and gravestone lockdown
-- Rift Sigils, Rift Essence, Rift Gate tile, reward weapon
-- Rift enemies, the Rift Warden boss, spawn control, completion and rewards
-- Experience HUD, character panel, Rift Gate selector
+- Tier table and run state, with tier access derived from what the Hold has cleared
+- Mining, placement, explosion and gravestone lockdown, with per-tile whitelists
+- Rift Gate tile and item, and the Gate panel that lists tiers
+- Rift enemies, the placeholder Rift Warden, spawn control, and clear detection
 - `/rift` developer commands
 
-Not written yet, and referenced by code that is:
+Not written, and nothing references it:
 
-- `HubGrowthSystem` — the hub growth stages. `RiftCommand` calls it, so **the mod will not build until this exists**.
-- `Riftaria.Networking.cs` — `Mod.HandlePacket`. Packets are sent for progression, point spending and run completion, but nothing receives them, so multiplayer will not work.
-- The multiplayer pass generally: party entry rules, server-authoritative validation, dedicated server testing.
+- Spawners. Encounters still use vanilla-style spawning with a filtered pool.
+- Boss Adapters, and the nine tiers past the third.
+- Loot of any kind. Clearing a tier unlocks the next and pays nothing else.
+- `Mod.HandlePacket`. Run completion sends a packet that nothing receives; every send site is behind a `netMode` check, so single player is unaffected.
 - `docs/build-and-test.md` — the first-build checklist.
 
 ## Requirements
@@ -82,16 +79,13 @@ Riftaria/
     Items/                     Tool and placeable lockdown
     Maps/                      Tier table and run state
     Net/                       Packet ids
-    Players/                   Per-character progression
-    Progression/               XP curve and the stat node tree
-    Rewards/                   Completion payout and per-kill experience
     Systems/                   Worldgen, gateway, spawning, run lifecycle
     Tiles/                     Mining, placement and gravestone lockdown
     World/                     World-edit policy, hub and rift geometry
   Content/
     Items/  NPCs/  Tiles/      Game content
     Subworlds/                 The rift subworld and its generation passes
-  UI/                          XP bar, character panel, rift gate panel
+  UI/                          The Rift Gate panel
   Localization/
 docs/                          Design decisions, research brief, build/test checklist
 tools/                         Placeholder sprite generator
@@ -103,13 +97,11 @@ Typed in chat:
 
 | Command | Effect |
 | --- | --- |
-| `/rift xp <n>` | Grant experience |
-| `/rift level <n>` | Set character level |
-| `/rift points <n>` | Grant unspent stat points |
-| `/rift sigil <tier>` | Spawn a sigil of that tier |
-| `/rift enter <tier>` | Open a rift, ignoring requirements |
+| `/rift enter <tier>` | Open a rift, ignoring whether it is unlocked |
 | `/rift exit` | Return to the Hold |
-| `/rift hub <stage>` | Force a hub growth stage |
+| `/rift clear <tier>` | Mark a tier cleared, unlocking the next |
+| `/rift reset` | Forget all progress; only tier 1 stays open |
+| `/rift tiers` | Report how many tiers exist and which are open |
 | `/rift where` | Report the current world |
 
 ## Background

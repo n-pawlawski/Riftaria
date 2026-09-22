@@ -6,7 +6,6 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Riftaria.Common.Maps;
 using Riftaria.Common.Net;
-using Riftaria.Common.Rewards;
 using Riftaria.Common.World;
 using Riftaria.Content.NPCs;
 
@@ -78,8 +77,9 @@ namespace Riftaria.Common.Systems
 			RiftRunState.ObjectiveComplete = true;
 			RiftRunState.ExitCountdown = ExitDelayTicks;
 
+			// The clear is the whole payout for now. It travels home in RiftRunState
+			// and is banked against the Hold on the way out; see RiftSubworld.
 			int tier = RiftRunState.ActiveTier;
-			RiftRewards.GrantToEveryoneInRift(tier);
 
 			Announce(Language.GetTextValue("Mods.Riftaria.Rift.Cleared"), new Color(150, 255, 180));
 

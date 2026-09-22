@@ -3,16 +3,13 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Riftaria.Common.Maps;
-using Riftaria.Common.Players;
-using Riftaria.Common.Progression;
 using Riftaria.Common.Systems;
-using Riftaria.Content.Items;
 
 namespace Riftaria.Common.Commands
 {
 	/// <summary>
 	/// Developer shortcuts. Every one of these exists because the alternative is
-	/// replaying the loop from level 1 to check a change three tiers deep.
+	/// replaying the loop from tier one to check a change three tiers deep.
 	/// </summary>
 	public class RiftCommand : ModCommand
 	{
@@ -21,7 +18,7 @@ namespace Riftaria.Common.Commands
 		public override string Command => "rift";
 
 		public override string Usage =>
-			"/rift xp <amount> | level <n> | points <n> | sigil <tier> | enter <tier> | exit | hub <stage> | where";
+			"/rift enter <tier> | exit | clear <tier> | reset | tiers | where";
 
 		public override string Description => "Riftaria developer commands.";
 
@@ -36,49 +33,9 @@ namespace Riftaria.Common.Commands
 			}
 
 			Player player = caller.Player;
-			RiftariaPlayer progression = RiftariaPlayer.Get(player);
+			HubWorldSystem hub = HubWorldSystem.Instance;
 
 			switch (args[0].ToLowerInvariant()) {
-				case "xp":
-					if (!TryNumber(caller, args, 1, out int amount)) {
-						return;
-					}
-
-					progression.GrantXp(amount);
-					caller.Reply($"Granted {amount} experience. Level {progression.Level}.", Info);
-					break;
-
-				case "level":
-					if (!TryNumber(caller, args, 1, out int level)) {
-						return;
-					}
-
-					level = Utils.Clamp(level, 1, XpCurve.MaxLevel);
-					progression.UnspentPoints += (level - progression.Level) * XpCurve.PointsPerLevel;
-					progression.Level = level;
-					progression.Xp = 0;
-					caller.Reply($"Level set to {level}.", Info);
-					break;
-
-				case "points":
-					if (!TryNumber(caller, args, 1, out int points)) {
-						return;
-					}
-
-					progression.UnspentPoints += points;
-					caller.Reply($"Unspent points: {progression.UnspentPoints}.", Info);
-					break;
-
-				case "sigil":
-					if (!TryNumber(caller, args, 1, out int sigilTier)) {
-						return;
-					}
-
-					player.QuickSpawnItem(player.GetSource_Misc("RiftariaCommand"),
-						RiftSigil.WithTier(sigilTier));
-					caller.Reply($"Spawned a tier {sigilTier} Rift Sigil.", Info);
-					break;
-
 				case "enter":
 					if (!TryNumber(caller, args, 1, out int enterTier)) {
 						return;
@@ -86,7 +43,6 @@ namespace Riftaria.Common.Commands
 
 					if (!RiftGateway.TryEnter(player, enterTier, ignoreRequirements: true, out string reason)) {
 						caller.Reply(reason, Problem);
-						return;
 					}
 
 					break;
@@ -95,13 +51,24 @@ namespace Riftaria.Common.Commands
 					RiftGateway.ReturnToHub();
 					break;
 
-				case "hub":
-					if (!TryNumber(caller, args, 1, out int stage)) {
+				case "clear":
+					if (!TryNumber(caller, args, 1, out int clearTier)) {
 						return;
 					}
 
-					ModContent.GetInstance<HubGrowthSystem>().SetStage(stage, announce: true);
-					caller.Reply($"Hub growth stage set to {stage}.", Info);
+					hub.RecordClear(clearTier);
+					caller.Reply($"Highest tier cleared is now {hub.HighestTierCleared}. "
+						+ $"Tier {RiftGateway.HighestUnlockedTier} is open.", Info);
+					break;
+
+				case "reset":
+					hub.HighestTierCleared = 0;
+					caller.Reply("Progress reset. Only tier 1 is open.", Info);
+					break;
+
+				case "tiers":
+					caller.Reply($"{RiftTierRegistry.MaxTier} tiers registered. "
+						+ $"Cleared {hub.HighestTierCleared}, open up to {RiftGateway.HighestUnlockedTier}.", Info);
 					break;
 
 				case "where":
@@ -120,7 +87,7 @@ namespace Riftaria.Common.Commands
 		{
 			value = 0;
 			if (args.Length <= index) {
-				caller.Reply($"Missing number. {caller.CommandType}: /rift {args[0]} <number>", Problem);
+				caller.Reply($"Missing number. Usage: /rift {args[0]} <number>", Problem);
 				return false;
 			}
 

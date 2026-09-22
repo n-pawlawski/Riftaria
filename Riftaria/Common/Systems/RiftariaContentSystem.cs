@@ -1,6 +1,5 @@
 using Terraria.ModLoader;
 using Riftaria.Common.Maps;
-using Riftaria.Common.Progression;
 using Riftaria.Common.World;
 using Riftaria.Content.Tiles;
 
@@ -11,12 +10,13 @@ namespace Riftaria.Common.Systems
 	{
 		public override void PostSetupContent()
 		{
-			StatTree.LoadDefaults();
 			RiftTierRegistry.LoadDefaults();
 
 			// The only thing a player is allowed to build. Everything else, including
-			// every vanilla block, stays locked for the MVP.
+			// every vanilla block, stays locked. Placement implies breakability, or a
+			// misplaced Gate would be stuck where it landed.
 			WorldEditPolicy.AllowPlacement(ModContent.TileType<MapDeviceTile>());
+			WorldEditPolicy.AllowMining(ModContent.TileType<MapDeviceTile>());
 		}
 	}
 }

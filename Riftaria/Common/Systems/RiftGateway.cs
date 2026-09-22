@@ -1,8 +1,8 @@
+using System;
 using SubworldLibrary;
 using Terraria;
 using Terraria.Localization;
 using Riftaria.Common.Maps;
-using Riftaria.Common.Players;
 using Riftaria.Content.Subworlds;
 
 namespace Riftaria.Common.Systems
@@ -13,8 +13,19 @@ namespace Riftaria.Common.Systems
 		public static bool InRift => SubworldSystem.IsActive<RiftSubworld>();
 
 		/// <summary>
+		/// The highest tier currently openable. Tier one is always available; every
+		/// other tier opens by clearing the one below it.
+		/// </summary>
+		public static int HighestUnlockedTier => Math.Min(
+			RiftTierRegistry.MaxTier,
+			HubWorldSystem.Instance.HighestTierCleared + 1);
+
+		public static bool IsUnlocked(int tier)
+			=> tier >= RiftTierRegistry.FirstTier && tier <= HighestUnlockedTier;
+
+		/// <summary>
 		/// Whether this player may open this tier. Separate from <see cref="TryEnter"/>
-		/// so a caller can check before spending the sigil that pays for the run.
+		/// so the Gate can grey a row out rather than only refusing on click.
 		/// </summary>
 		public static bool CanEnter(Player player, int tier, bool ignoreRequirements, out string reason)
 		{
@@ -30,13 +41,12 @@ namespace Riftaria.Common.Systems
 			}
 
 			if (!RiftTierRegistry.Exists(tier)) {
-				reason = Language.GetTextValue("Mods.Riftaria.Rift.NoSigil");
+				reason = Language.GetTextValue("Mods.Riftaria.Rift.NoSuchTier", tier);
 				return false;
 			}
 
-			RiftTier data = RiftTierRegistry.Get(tier);
-			if (RiftariaPlayer.Get(player).Level < data.RequiredLevel) {
-				reason = Language.GetTextValue("Mods.Riftaria.Rift.LevelTooLow", data.RequiredLevel);
+			if (!IsUnlocked(tier)) {
+				reason = Language.GetTextValue("Mods.Riftaria.Rift.Locked", tier - 1);
 				return false;
 			}
 

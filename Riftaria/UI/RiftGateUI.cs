@@ -6,11 +6,13 @@ using Terraria.ModLoader;
 using Terraria.UI;
 using Riftaria.Common.Maps;
 using Riftaria.Common.Systems;
-using Riftaria.Content.Items;
 
 namespace Riftaria.UI
 {
-	/// <summary>Run selector. Lists the sigils the player is carrying.</summary>
+	/// <summary>
+	/// Run selector. Lists every tier in the table and marks which are open, so the
+	/// ladder is visible from the first run rather than appearing a rung at a time.
+	/// </summary>
 	public class RiftGateUI : UIState
 	{
 		private UIPanel panel;
@@ -54,19 +56,12 @@ namespace Riftaria.UI
 		{
 			list.Clear();
 
-			Player player = Main.LocalPlayer;
-			bool found = false;
-
-			for (int slot = 0; slot < player.inventory.Length; slot++) {
-				Item item = player.inventory[slot];
-				if (item.stack > 0 && item.ModItem is RiftSigil sigil) {
-					list.Add(new RiftGateRow(slot, sigil.Tier));
-					found = true;
-				}
+			foreach (RiftTier tier in RiftTierRegistry.All) {
+				list.Add(new RiftGateRow(tier.Tier, RiftGateway.IsUnlocked(tier.Tier)));
 			}
 
-			if (!found) {
-				list.Add(new UIText(Language.GetText("Mods.Riftaria.UI.NoSigils"), 0.9f));
+			if (list.Count == 0) {
+				list.Add(new UIText(Language.GetText("Mods.Riftaria.UI.NoTiers"), 0.9f));
 			}
 
 			Recalculate();
@@ -82,35 +77,42 @@ namespace Riftaria.UI
 		}
 	}
 
-	/// <summary>One carried sigil, with the button that spends it.</summary>
+	/// <summary>One tier, and the button that opens it.</summary>
 	public class RiftGateRow : UIElement
 	{
-		private readonly int slot;
 		private readonly int tier;
+		private readonly bool unlocked;
 
-		public RiftGateRow(int slot, int tier)
+		public RiftGateRow(int tier, bool unlocked)
 		{
-			this.slot = slot;
 			this.tier = tier;
+			this.unlocked = unlocked;
 			Width.Set(0f, 1f);
 			Height.Set(46f, 0f);
 		}
 
 		public override void OnInitialize()
 		{
-			RiftTier data = RiftTierRegistry.Get(tier);
-
-			UIText label = new(Language.GetTextValue("Mods.Riftaria.Rift.Title", tier), 0.95f);
+			UIText label = new(Language.GetTextValue("Mods.Riftaria.Rift.Title", tier), 0.95f) {
+				TextColor = unlocked ? Color.White : Color.Gray
+			};
 			label.Left.Set(4f, 0f);
 			Append(label);
 
-			UIText requirement = new(
-				Language.GetTextValue("Mods.Riftaria.Rift.Requirement", data.RequiredLevel), 0.8f) {
-				TextColor = Color.LightGray
+			UIText state = new(
+				unlocked
+					? Language.GetTextValue("Mods.Riftaria.Rift.Open")
+					: Language.GetTextValue("Mods.Riftaria.Rift.Locked", tier - 1),
+				0.8f) {
+				TextColor = unlocked ? Color.LightGray : Color.DarkGray
 			};
-			requirement.Left.Set(4f, 0f);
-			requirement.Top.Set(22f, 0f);
-			Append(requirement);
+			state.Left.Set(4f, 0f);
+			state.Top.Set(22f, 0f);
+			Append(state);
+
+			if (!unlocked) {
+				return;
+			}
 
 			UITextPanel<LocalizedText> enter = new(Language.GetText("Mods.Riftaria.UI.Enter"), 0.85f) {
 				VAlign = 0.5f,
@@ -125,23 +127,10 @@ namespace Riftaria.UI
 
 		private void Launch()
 		{
-			Player player = Main.LocalPlayer;
-
-			// The inventory can have been rearranged since the panel was built.
-			Item item = player.inventory[slot];
-			if (item.ModItem is not RiftSigil sigil || sigil.Tier != tier) {
-				ModContent.GetInstance<RiftGateUISystem>().Open();
-				return;
-			}
-
-			if (!RiftGateway.CanEnter(player, tier, ignoreRequirements: false, out string reason)) {
+			if (!RiftGateway.CanEnter(Main.LocalPlayer, tier, ignoreRequirements: false, out string reason)) {
 				Main.NewText(reason, 255, 140, 140);
 				return;
 			}
-
-			// Spend first: the transition is asynchronous, and a sigil that survives
-			// the run it paid for is a duplication bug.
-			item.TurnToAir();
 
 			ModContent.GetInstance<RiftGateUISystem>().Close();
 			Main.NewText(Language.GetTextValue("Mods.Riftaria.Rift.Opening", tier), 190, 160, 255);

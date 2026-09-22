@@ -1,8 +1,11 @@
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using SubworldLibrary;
 using Terraria;
+using Terraria.Localization;
 using Terraria.WorldBuilding;
 using Riftaria.Common.Maps;
+using Riftaria.Common.Systems;
 using Riftaria.Common.World;
 using Riftaria.Content.Worldgen.Rift;
 
@@ -51,8 +54,22 @@ namespace Riftaria.Content.Subworlds
 		public override void CopySubworldData()
 			=> SubworldSystem.CopyWorldData(ClearedKey, RiftRunState.ObjectiveComplete ? RiftRunState.ActiveTier : 0);
 
+		/// <summary>
+		/// Runs once the destination world is loaded, which is the only moment the
+		/// clear can be banked: the rift's own world data is thrown away on exit, so
+		/// nothing written inside the subworld would survive.
+		/// </summary>
 		public override void ReadCopiedSubworldData()
-			=> RiftRunState.LastClearedTier = SubworldSystem.ReadCopiedWorldData<int>(ClearedKey);
+		{
+			int cleared = SubworldSystem.ReadCopiedWorldData<int>(ClearedKey);
+			RiftRunState.LastClearedTier = cleared;
+
+			if (cleared > 0 && HubWorldSystem.Instance.RecordClear(cleared)) {
+				RiftRunSystem.Announce(
+					Language.GetTextValue("Mods.Riftaria.Rift.TierUnlocked", cleared + 1),
+					new Color(190, 160, 255));
+			}
+		}
 
 		public override void OnLoad()
 		{
