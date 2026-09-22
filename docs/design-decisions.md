@@ -158,94 +158,15 @@ vanilla spawning outright and own a list of spawners instead.
 
 ---
 
-## Pending board edits
+## Board sync
 
-Queued on 21 September after hitting the Miro free-plan daily limit of 100 tool calls.
-Apply these when the limit resets.
+The Miro board is current as of 22 September. Everything above has been applied to it:
+the Boss Adapters system card, the boss AI escalation policy, the spawner model on
+Encounters, the whitelist rules on World Edit Rules, the tier unlock decision on Reward
+Tables, and the five systems that moved from Open to Shaped.
 
-**System / Boss Adapters** (`3458764684383973956`)
+Eleven of the thirteen systems are Shaped, one is Open (Multiplayer), and one is
+Deferred (Keys and Map Items).
 
-- Subtitle `3458764684383973960` → "One per tier. What a boss demands of the world,
-  and how far we go to meet it."
-- How it works `3458764684383973962` → change the Leash line to "Satisfied by the
-  arena, or patched out of the AI", and replace the closing line with "Default to
-  vanilla AI, patch where a rift breaks it, write our own only where patching cannot.
-  Which of the three a tier needs is found in testing, not declared up front."
-
-**System / The Objective** (`3458764684378310139`)
-
-- How it works `3458764684378310157` → replace "Still open: the real vanilla boss, or
-  a rift-specific variant of it" with "The real boss by default. Patched where a rift
-  breaks it, replaced only where patching cannot." Change the completion line to
-  "Completion unlocks the next tier directly and starts the return."
-
-**Reward Tables** (`3458764684382508230`)
-
-- Header `3458764684384272805` → "HOW THE NEXT TIER OPENS"
-- Body `3458764684382508257` → the unlock decision, with the map item recorded as the
-  later intention.
-
-**System and Loop Matrix** (`3458764684378900897`)
-
-Three systems are no longer blocked and move from Open to Shaped (`#067429`):
-
-- The Objective, status `3458764684378957957`
-- Rewards and Loot, status `3458764684378957962`
-- Boss Adapters, status `3458764684384042051`
-
-- Footer `3458764684378957987` → "Nine shaped, three open, one deferred." The three
-  remaining Open are World Edit Rules, Encounters and Multiplayer.
-
-**Backlog** (`3458764684381846730`)
-
-- Keys and Map Items line in `3458764684381846734` → change from a conditional revival
-  to a stated intention, since a map item is now planned rather than merely possible.
-
-### Queued 21 September, evening
-
-**System / Encounters** (`3458764684378310138`, at 1756, 5400)
-
-Child element IDs not yet read; read the frame before editing.
-
-- Subtitle → "What you fight on the way, and where it comes from."
-- How it works → vanilla ambient spawning off inside rifts; enemies come from spawners
-  placed by generation; a spawner carries a pool from the tier's biome, an interval, a
-  cap on its own live enemies, and an activation radius; spawners are destructible
-  stationary NPCs, so killing one ends its flow; the boss is the same mechanism with a
-  count of one and a trigger; simple on purpose, with waves and finite budgets later.
-- Interacts with → add Boss Adapters alongside Rift Generation.
-
-**System / World Edit Rules** (`3458764684378270266`)
-
-Child element IDs not yet read; read the frame before editing.
-
-- How it works → the rule applies in the Hold as well as in rifts; mining and placement
-  are each off by default with a per-tile whitelist; the placement whitelist admits
-  what helps a player see and survive but not what reshapes the layout; spawners are
-  NPCs rather than tiles, so destroying them needs no exception and the no-mining rule
-  holds without qualification.
-- Status `3458764684378957947` → Shaped (`#067429`). The mechanism is settled and only
-  the whitelist contents remain, which is content rather than a blocking decision.
-
-**System and Loop Matrix**, revised totals
-
-With Encounters and World Edit Rules both moving, the footer
-`3458764684378957987` should read "Eleven shaped, one open, one deferred", leaving
-Multiplayer as the only Open entry.
-
-**System / Rift Generation** (`3458764684378270263`)
-
-- How it works `3458764684378270293` → generation now also places spawners, so add that
-  to the list of what a tier controls.
-
-**System and Loop Matrix** (`3458764684378900897`)
-
-- Encounters, status `3458764684378957952` → Shaped (`#067429`), assuming the loot
-  faucet question below is treated as tuning rather than a blocker.
-- Footer `3458764684378957987` → "Ten shaped, two open, one deferred", leaving World
-  Edit Rules and Multiplayer as the only Open entries.
-
-**Reward Tables** (`3458764684382508230`)
-
-- Add the loot faucet conflict to the STILL OPEN list (`3458764684384272807`), since it
-  is a reward problem as much as a spawning one.
+Blank scaffold frames still to fill: Content Register, Session Shape, First Playable,
+Saved Data, and Board and Code.
