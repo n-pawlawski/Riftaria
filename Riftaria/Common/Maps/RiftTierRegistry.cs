@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Riftaria.Common.World;
 
 namespace Riftaria.Common.Maps
 {
@@ -35,16 +36,17 @@ namespace Riftaria.Common.Maps
 
 		internal static void LoadDefaults()
 		{
-			Register(new RiftTier { Tier = 1, RoomCount = 5, EnemyScaling = 1f, EnemyBudget = 6 });
-			Register(new RiftTier { Tier = 2, RoomCount = 7, EnemyScaling = 1.6f, EnemyBudget = 8 });
-			Register(new RiftTier { Tier = 3, RoomCount = 9, EnemyScaling = 2.4f, EnemyBudget = 10 });
+			Register(new RiftTier { Tier = 1, RoomCount = 5, EnemyScaling = 1f, EnemyBudget = 6, Biome = BiomeId.Forest });
+			Register(new RiftTier { Tier = 2, RoomCount = 7, EnemyScaling = 1.6f, EnemyBudget = 8, Biome = BiomeId.Evil });
+			Register(new RiftTier { Tier = 3, RoomCount = 9, EnemyScaling = 2.4f, EnemyBudget = 10, Biome = BiomeId.Stone });
 		}
 
 		private static RiftTier Default(int tier) => new() {
 			Tier = tier,
 			RoomCount = 5,
 			EnemyScaling = 1f,
-			EnemyBudget = 6
+			EnemyBudget = 6,
+			Biome = BiomeId.Stone
 		};
 
 		internal static void Reset() => Tiers.Clear();

@@ -20,5 +20,11 @@ namespace Riftaria.Common.Maps
 
 		/// <summary>Concurrent enemies a rift of this tier aims to keep alive.</summary>
 		public int EnemyBudget { get; init; }
+
+		/// <summary>
+		/// Terrain profile id, resolved when the rift generates. Unknown ids fall
+		/// back to stone.
+		/// </summary>
+		public string Biome { get; init; }
 	}
 }

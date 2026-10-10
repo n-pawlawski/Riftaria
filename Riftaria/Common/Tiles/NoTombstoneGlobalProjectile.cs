@@ -14,7 +14,7 @@ namespace Riftaria.Common.Tiles
 	{
 		public override void OnSpawn(Projectile projectile, Terraria.DataStructures.IEntitySource source)
 		{
-			if (WorldEditPolicy.PlacementEnabled) {
+			if (WorldEditPolicy.CanPlace()) {
 				return;
 			}
 

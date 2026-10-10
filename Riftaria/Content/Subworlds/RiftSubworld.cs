@@ -79,7 +79,7 @@ namespace Riftaria.Content.Subworlds
 			Main.bloodMoon = false;
 			Main.eclipse = false;
 
-			RiftLayout.WardenSpawned = false;
+			RiftLayout.ObjectiveSpawned = false;
 		}
 
 		public override void OnEnter()
@@ -92,6 +92,7 @@ namespace Riftaria.Content.Subworlds
 		{
 			RiftRunState.ExitCountdown = -1;
 			RiftLayout.Reset();
+			RiftLootSystem.Clear();
 		}
 	}
 }

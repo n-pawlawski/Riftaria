@@ -1,3 +1,9 @@
+Prefixes: {
+	HeavystringBow.DisplayName: Heavystring
+	QuickstringBow.DisplayName: Quickstring
+	RiftforgedBow.DisplayName: Riftforged
+}
+
 Items: {
 	RiftEssence: {
 		DisplayName: Rift Essence
@@ -9,53 +15,47 @@ Items: {
 		Tooltip: Cut from the edge of somewhere that no longer exists
 	}
 
+	RiftLootBag: {
+		DisplayName: Rift Bag
+		Tooltip: Right click to open. The boss and the rift tier are written on it.
+	}
+
 	MapDeviceItem: {
 		DisplayName: Rift Gate
 		Tooltip: Place it in the Hold, then right click it to choose a rift
 	}
 }
 
-Tiles: {
-	MapDeviceTile.MapEntry: Rift Gate
-}
+Tiles.MapDeviceTile.MapEntry: Rift Gate
 
 NPCs: {
-	RiftHusk: {
-		DisplayName: Rift Husk
-	}
-
-	RiftStalker: {
-		DisplayName: Rift Stalker
-	}
-
-	RiftWarden: {
-		DisplayName: Rift Warden
-	}
+	RiftHusk.DisplayName: Rift Husk
+	RiftStalker.DisplayName: Rift Stalker
+	RiftWarden.DisplayName: Rift Warden
+	RiftZombie.DisplayName: Zombie
+	RiftEye.DisplayName: Eye
+	RiftGolem.DisplayName: Golem
 }
 
-Subworlds: {
-	RiftSubworld: {
-		DisplayName: Unstable Rift
-	}
-}
+Subworlds.RiftSubworld.DisplayName: Unstable Rift
 
 Rift: {
-	Title: "Tier {0} Rift"
+	Title: Tier {0} Rift
 	Open: Open
-	Locked: "Clear tier {0} to open this."
-	NoSuchTier: "There is no tier {0}."
+	Locked: Clear tier {0} to open this.
+	NoSuchTier: There is no tier {0}.
 	NotInHold: Rift Gates only work inside the Hold.
 	AlreadyInRift: You are already inside a rift.
-	Opening: "Opening a tier {0} rift..."
-	Entered: "Tier {0} rift. Find the Warden."
-	Cleared: Rift stabilised. Returning to the Hold.
-	TierUnlocked: "Tier {0} is now open at the Rift Gate."
+	Opening: Opening a tier {0} rift...
+	Entered: Tier {0} rift. Find the Warden.
+	Cleared: Rift stabilised. A portal home has opened in the boss room.
+	TierUnlocked: Tier {0} is now open at the Rift Gate.
 	Failed: The rift collapsed around you.
 	ObjectiveAlive: Rift Warden
-	ObjectiveDirection: "The Warden waits {0} blocks {1}."
+	ObjectiveDirection: The Warden waits {0} blocks {1}.
 	East: east
 	West: west
-	ReturningIn: "Returning in {0}s"
+	ReturningIn: Returning in {0}s
 }
 
 UI: {
@@ -63,4 +63,17 @@ UI: {
 	RiftGateTitle: Rift Gate
 	NoTiers: No rifts are registered.
 	Enter: Enter
+	SkillTreeTitle: Skill Tree
+	LevelLine: Level {0}  -  XP {1} / {2}
+	SkillPoints: Skill points: {0}
+	LifeNode: +{0} Max Life
+	LevelUp: Level {0}!
+}
+
+Keybinds.SkillTree.DisplayName: Skill Tree
+
+Projectiles: {
+	RiftArc.DisplayName: Rift Arc
+	RiftExitPortal.DisplayName: Way Home
+	RiftBoulder.DisplayName: Boulder
 }

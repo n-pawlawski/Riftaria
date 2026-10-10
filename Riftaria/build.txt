@@ -6,4 +6,4 @@ modReferences = SubworldLibrary
 hideCode = false
 hideResources = false
 includeSource = true
-buildIgnore = *.csproj, *.user, *.sln, obj\*, bin\*, .vs\*, lib\*, *.md
+buildIgnore = *.csproj, *.user, *.sln, obj\*, bin\*, .vs\*, lib\*, *.md, *.bak

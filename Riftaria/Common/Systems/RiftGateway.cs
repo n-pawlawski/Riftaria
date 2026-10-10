@@ -3,6 +3,8 @@ using SubworldLibrary;
 using Terraria;
 using Terraria.Localization;
 using Riftaria.Common.Maps;
+using Riftaria.Common.World;
+using Riftaria.Common.World.Pieces;
 using Riftaria.Content.Subworlds;
 
 namespace Riftaria.Common.Systems
@@ -68,6 +70,11 @@ namespace Riftaria.Common.Systems
 		public static void Enter(int tier)
 		{
 			RiftRunState.BeginRun(tier);
+			// The subworld reads its size as it is created, so the plan has to
+			// exist before the transition starts.
+			RiftLayout.Plan = RiftPlans.For(RiftTierRegistry.Get(tier).Biome);
+			RiftLayout.Plan.Roll();
+
 			SubworldSystem.Enter<RiftSubworld>();
 		}
 

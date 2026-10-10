@@ -67,9 +67,12 @@ namespace Riftaria.Content.NPCs
 			NPC.frame.Y = (int)NPC.frameCounter * frameHeight;
 		}
 
-		/// <summary>Rift enemies exist only inside rifts; the Hold is a safe room.</summary>
-		public override float SpawnChance(NPCSpawnInfo spawnInfo)
-			=> RiftGateway.InRift ? SpawnWeight : 0f;
+		/// <summary>
+		/// Kept out of the spawn pool. These have no texture, so a spawn draws as a
+		/// square and then despawns. The rift uses the zombies and slimes placed
+		/// along the path instead.
+		/// </summary>
+		public override float SpawnChance(NPCSpawnInfo spawnInfo) => 0f;
 	}
 
 	public class RiftHusk : RiftEnemy

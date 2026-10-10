@@ -1,0 +1,251 @@
+.tabs {
+	display: flex;
+	gap: 4px;
+	padding: 10px 20px 0;
+	border-bottom: 1px solid #3a342c;
+}
+
+.tabs button {
+	border-bottom: none;
+	background: #1f1c17;
+	color: #b7ad9c;
+}
+
+.tabs button.active {
+	background: #2a261f;
+	color: #e6e0d4;
+	border-color: #a89c86;
+}
+
+.panel.editor {
+	flex-direction: column;
+	overflow: auto;
+	gap: 12px;
+}
+
+.editor h2 {
+	margin-top: 4px;
+}
+
+.editor h3 {
+	font-size: 17px;
+	font-weight: normal;
+	margin: 0 0 6px;
+	color: #d8ccb4;
+}
+
+.editor input, .editor select, .editor button, .editor textarea {
+	padding: 3px 7px;
+	font-size: 15px;
+}
+
+.editor textarea {
+	font: inherit;
+	background: #2a261f;
+	color: inherit;
+	border: 1px solid #6d6456;
+	width: 100%;
+	min-height: 12rem;
+}
+
+.editor input[type="number"] {
+	width: 5.5rem;
+}
+
+.editor input.wide {
+	width: 14rem;
+}
+
+.toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	align-items: center;
+}
+
+.subnav button.active {
+	border-color: #e6e0d4;
+}
+
+.note {
+	color: #b7ad9c;
+	margin: 0;
+}
+
+.errors {
+	margin: 0;
+	padding: 8px 12px 8px 28px;
+	border: 1px solid #7a3a32;
+	background: #2b1915;
+	color: #f0b8a8;
+	max-height: 9rem;
+	overflow: auto;
+}
+
+.errors:empty {
+	display: none;
+}
+
+.split {
+	display: grid;
+	grid-template-columns: minmax(20rem, 30rem) minmax(0, 1fr);
+	gap: 16px;
+	min-height: 0;
+	align-items: start;
+}
+
+.card {
+	border: 1px solid #3a342c;
+	padding: 10px 12px;
+	background: #1f1c17;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	max-height: calc(100dvh - 15rem);
+	overflow: auto;
+}
+
+.list-row {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 2px 8px;
+	padding: 5px 8px;
+	border: 1px solid transparent;
+	cursor: pointer;
+}
+
+.list-row:hover {
+	background: #2a261f;
+}
+
+.list-row.selected {
+	border-color: #a89c86;
+	background: #2a261f;
+}
+
+.list-row .sub {
+	grid-column: 1 / -1;
+	color: #9a907f;
+	font-size: 13px;
+}
+
+.badge {
+	font-size: 12px;
+	padding: 1px 6px;
+	border: 1px solid #6d6456;
+	color: #d8ccb4;
+}
+
+.badge.prefix {
+	border-color: #6a7fb0;
+}
+
+.badge.suffix {
+	border-color: #b08a5a;
+}
+
+.badge.bad {
+	border-color: #b0503f;
+	color: #f0b8a8;
+}
+
+.fields {
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	gap: 8px 12px;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.fields > select {
+	justify-self: start;
+}
+
+.checks {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px 14px;
+}
+
+.checks label {
+	gap: 4px;
+}
+
+.editor table td, .editor table th {
+	padding: 3px 10px 3px 0;
+	vertical-align: middle;
+}
+
+.grid-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+	gap: 12px;
+}
+
+.item-card {
+	border: 1px solid #3a342c;
+	background: #15130f;
+	padding: 8px 10px;
+}
+
+.item-card .name {
+	font-size: 17px;
+}
+
+.item-card .base {
+	color: #b7ad9c;
+	font-size: 13px;
+}
+
+.item-card .affix {
+	color: #8888ff;
+	font-size: 14px;
+}
+
+.item-card .tier {
+	color: #7c7468;
+	font-size: 12px;
+	margin-right: 6px;
+	font-variant-numeric: tabular-nums;
+}
+
+.rarity-normal {
+	color: #ffffff;
+}
+
+.rarity-magic {
+	color: #8888ff;
+}
+
+.rarity-rare {
+	color: #ffff77;
+}
+
+.check-ok {
+	color: #8fd18f;
+}
+
+.check-bad {
+	color: #f0b8a8;
+}
+
+.check-log {
+	margin: 8px 0 0;
+	padding: 8px 10px;
+	background: #15130f;
+	border: 1px solid #3a342c;
+	font-size: 13px;
+	max-height: 22rem;
+	overflow: auto;
+	white-space: pre-wrap;
+}
+
+.bar {
+	display: inline-block;
+	height: 8px;
+	background: #6a7fb0;
+	vertical-align: middle;
+}

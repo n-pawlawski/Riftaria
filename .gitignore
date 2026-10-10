@@ -5,6 +5,9 @@ obj/
 *.user
 *.tmod
 
+# Previous copy kept by the rift-preview save
+*.bak
+
 # OS / editor
 .DS_Store
 Thumbs.db

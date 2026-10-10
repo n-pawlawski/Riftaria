@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Rift layout</title>
+	<style>
+		:root {
+			color-scheme: dark;
+			font-family: Georgia, serif;
+			background: #1a1814;
+			color: #e6e0d4;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		html, body {
+			height: 100%;
+			margin: 0;
+			overflow: hidden;
+		}
+
+		body {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.panel {
+			flex: 1 1 auto;
+			min-height: 0;
+			display: flex;
+			padding: 12px 20px 18px;
+			overflow: hidden;
+		}
+
+		.panel > .column {
+			flex: 1 1 auto;
+		}
+
+		.column {
+			min-width: 0;
+			min-height: 0;
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+		}
+
+		h1, h2 {
+			font-size: 22px;
+			font-weight: normal;
+			margin: 0 0 8px;
+		}
+
+		p {
+			margin: 0 0 12px;
+			line-height: 1.35;
+		}
+
+		form {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 12px;
+			align-items: center;
+			margin-bottom: 12px;
+		}
+
+		label {
+			display: flex;
+			gap: 8px;
+			align-items: center;
+		}
+
+		[hidden] {
+			display: none !important;
+		}
+
+		select, button, input {
+			font: inherit;
+			background: #2a261f;
+			color: inherit;
+			border: 1px solid #6d6456;
+			padding: 6px 10px;
+		}
+
+		.evil-only input {
+			width: 4.5rem;
+		}
+
+		button {
+			cursor: pointer;
+		}
+
+		#view {
+			flex: 1 1 auto;
+			min-height: 0;
+			overflow: hidden;
+			border: 1px solid #6d6456;
+			background: #111;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		canvas {
+			image-rendering: pixelated;
+			display: block;
+		}
+
+		#meta {
+			margin-top: 8px;
+			color: #b7ad9c;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			margin-top: 4px;
+		}
+
+		th, td {
+			text-align: left;
+			padding: 4px 16px 4px 0;
+			font-variant-numeric: tabular-nums;
+		}
+
+		th {
+			color: #b7ad9c;
+			font-weight: normal;
+		}
+	</style>
+	<link rel="stylesheet" href="editor.css">
+</head>
+<body>
+	<nav class="tabs" id="tabs">
+		<button type="button" data-tab="layout" class="active">Layout</button>
+		<button type="button" data-tab="affixes">Affixes</button>
+		<button type="button" data-tab="loot">Loot pools</button>
+		<button type="button" data-tab="roll">Roll preview</button>
+	</nav>
+	<div class="panel" data-panel="layout">
+		<section class="column">
+	<h1>Rift layout</h1>
+	<p id="blurb">
+		One pixel is one tile, rolled by the same layout code the game uses. Refresh rolls a new rift.
+	</p>
+	<form id="controls">
+		<label>
+			Rift
+			<select id="tier">
+				<option value="1">Tier 1, forest floor</option>
+				<option value="2">Tier 2, the evil</option>
+				<option value="3">Tier 3, stone rooms</option>
+			</select>
+		</label>
+		<button type="button" id="refresh">Refresh</button>
+	</form>
+	<div id="view"><canvas id="map"></canvas></div>
+	<p id="meta"></p>
+		</section>
+	</div>
+	<div class="panel editor" data-panel="affixes" hidden></div>
+	<div class="panel editor" data-panel="loot" hidden></div>
+	<div class="panel editor" data-panel="roll" hidden></div>
+	<script src="../../Riftaria/Common/Items/affixes.js"></script>
+	<script src="../../Riftaria/Common/Drops/loot-pools.js"></script>
+	<script src="editor-ui.js"></script>
+		<script>
+		const ROCK = [42, 40, 38];
+		const AIR = [214, 206, 190];
+		const FLOOR = [92, 122, 72];
+		const LEDGE = [122, 86, 58];
+		const SHELL_BRICK = [168, 140, 72];
+		const PALETTE = [ROCK, AIR, AIR, FLOOR, LEDGE, LEDGE];
+
+		const tier = document.getElementById("tier");
+		const canvas = document.getElementById("map");
+		const meta = document.getElementById("meta");
+		const server = location.protocol.startsWith("http") && location.port === "8765"
+			? location.origin
+			: "http://127.0.0.1:8765";
+
+		let shown = null;
+
+		document.getElementById("refresh").addEventListener("click", draw);
+		document.getElementById("controls").addEventListener("submit", event => event.preventDefault());
+		tier.addEventListener("change", draw);
+		window.addEventListener("resize", fitMap);
+		draw();
+
+		async function draw() {
+			meta.textContent = "Rolling the game's layout...";
+			try {
+				const layout = await rollLayout(Number(tier.value));
+				const binary = atob(layout.cells);
+				const cells = new Uint8Array(binary.length);
+				for (let i = 0; i < binary.length; i++) {
+					cells[i] = binary.charCodeAt(i);
+				}
+				shown = {
+					width: layout.width,
+					height: layout.height,
+					cells,
+					shell: layout.shell || 0
+				};
+				paintGrid(shown);
+				fitMap();
+				const label = tier.options[tier.selectedIndex].text;
+				meta.textContent = label + ". " + layout.width + " by " + layout.height + " tiles.";
+			}
+			catch (error) {
+				meta.textContent = error.message;
+			}
+		}
+
+		async function rollLayout(tierNumber) {
+			let response;
+			try {
+				response = await fetch(server + "/api/roll", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ op: "layout", tier: tierNumber })
+				});
+			}
+			catch {
+				throw new Error("Could not reach the preview server. Start it with: node tools/rift-preview/server.js");
+			}
+
+			const body = await response.json().catch(() => ({}));
+			if (!response.ok) {
+				throw new Error(body.error || "The layout roll failed.");
+			}
+			return body;
+		}
+
+		function paintGrid(layout) {
+			const ctx = canvas.getContext("2d");
+			canvas.width = layout.width;
+			canvas.height = layout.height;
+			const image = ctx.createImageData(layout.width, layout.height);
+			const data = image.data;
+			const shell = layout.shell || 0;
+			const width = layout.width;
+			for (let i = 0; i < layout.cells.length; i++) {
+				const x = i % width;
+				const y = (i / width) | 0;
+				let color = PALETTE[layout.cells[i]] || ROCK;
+				if (shell && (x < shell || y < shell || x >= width - shell || y >= layout.height - shell)) {
+					color = SHELL_BRICK;
+				}
+				const pixel = i * 4;
+				data[pixel] = color[0];
+				data[pixel + 1] = color[1];
+				data[pixel + 2] = color[2];
+				data[pixel + 3] = 255;
+			}
+			ctx.putImageData(image, 0, 0);
+		}
+
+		function fitMap() {
+			if (!shown) {
+				return;
+			}
+			const bounds = document.getElementById("view");
+			const mapHeight = shown.height || 1;
+			const scale = Math.min(bounds.clientWidth / shown.width, bounds.clientHeight / mapHeight);
+			const safe = scale > 0 ? scale : 1;
+			canvas.style.width = Math.max(1, Math.floor(shown.width * safe)) + "px";
+			canvas.style.height = Math.max(1, Math.floor(mapHeight * safe)) + "px";
+		}
+	</script>
+<script src="affixes-editor.js"></script>
+	<script src="loot-editor.js"></script>
+	<script src="roll-preview.js"></script>
+	<script>
+		for (const button of document.querySelectorAll("#tabs button")) {
+			button.addEventListener("click", () => showTab(button.dataset.tab));
+		}
+		window.addEventListener("hashchange", () => showTab(location.hash.slice(1)));
+		showTab(location.hash.slice(1) || "layout");
+
+		function showTab(name) {
+			if (!document.querySelector('[data-panel="' + name + '"]')) {
+				name = "layout";
+			}
+			for (const button of document.querySelectorAll("#tabs button")) {
+				button.classList.toggle("active", button.dataset.tab === name);
+			}
+			for (const panel of document.querySelectorAll("[data-panel]")) {
+				panel.hidden = panel.dataset.panel !== name;
+			}
+			history.replaceState(null, "", "#" + name);
+			RiftEditor.emit("show", name);
+			if (name === "layout") {
+				fitMap();
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<Project>
+  <!--
+    The mod's Terraria-free loot and item code, plus the drop checks run on it.
+    DropCheck and RollServer both compile these, and server.js rebuilds
+    RollServer when any of them change.
+  -->
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\Drops\DataJson.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\Drops\LootTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\Drops\RiftLoot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\Drops\RiftLootPlan.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\Items\StatId.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\Items\Rarity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\Items\RolledAffix.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\Items\AffixTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\Items\ItemRoller.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\RiftMeasures.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\BiomeId.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\Pieces\RiftSocket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\Pieces\RiftBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\Pieces\RiftPiece.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\Pieces\PlacedPiece.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\Pieces\RiftGrid.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\Pieces\RiftConnector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\Pieces\RiftCatalog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\Pieces\RiftAssembly.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\Pieces\RiftAssembler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\Pieces\RiftPiecePlan.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\Pieces\RiftPlans.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\Pieces\ForestPieces.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\Pieces\EvilPieces.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)..\Riftaria\Common\World\Pieces\StonePieces.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RiftChecks\DropChecks.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RiftChecks\LayoutChecks.cs" />
+  </ItemGroup>
+</Project>

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Terraria;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.WorldBuilding;
@@ -68,6 +67,9 @@ namespace Riftaria.Common.Systems
 			// A run never survives a world transition; only the hub remembers progress.
 			RiftRunState.ObjectiveComplete = false;
 			RiftRunState.ExitCountdown = -1;
+			if (IsHoldWorld) {
+				CastleFront.EnsureStarterGear();
+			}
 		}
 
 		/// <summary>Records a clear and returns true when this unlocked a new tier.</summary>
@@ -79,17 +81,6 @@ namespace Riftaria.Common.Systems
 
 			HighestTierCleared = tier;
 			return true;
-		}
-
-		/// <summary>The Hold is a safe room. Nothing spawns here.</summary>
-		public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
-		{
-			if (RiftGateway.InRift) {
-				return;
-			}
-
-			spawnRate = 0;
-			maxSpawns = 0;
 		}
 	}
 }

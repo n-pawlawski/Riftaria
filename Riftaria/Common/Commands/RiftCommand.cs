@@ -3,7 +3,10 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Riftaria.Common.Maps;
+using Riftaria.Common.Players;
 using Riftaria.Common.Systems;
+using Riftaria.Content.NPCs;
+using Riftaria.UI;
 
 namespace Riftaria.Common.Commands
 {
@@ -18,7 +21,7 @@ namespace Riftaria.Common.Commands
 		public override string Command => "rift";
 
 		public override string Usage =>
-			"/rift enter <tier> | exit | clear <tier> | reset | tiers | where";
+			"/rift enter <tier> | exit | clear <tier> | reset | tiers | where | eye | skills | xp <amount>";
 
 		public override string Description => "Riftaria developer commands.";
 
@@ -75,6 +78,34 @@ namespace Riftaria.Common.Commands
 					caller.Reply(RiftGateway.InRift
 						? $"Inside a tier {RiftRunState.ActiveTier} rift."
 						: "In the Hold.", Info);
+					break;
+
+				case "eye": {
+					int who = NPC.NewNPC(
+						new Terraria.DataStructures.EntitySource_SpawnNPC(),
+						(int)player.Center.X,
+						(int)player.Center.Y,
+						ModContent.NPCType<RiftEye>());
+					bool spawned = who >= 0 && who < Main.maxNPCs;
+					caller.Reply(spawned ? "The Eye is here." : "The Eye could not be spawned.", spawned ? Info : Problem);
+					break;
+				}
+
+				case "skills": {
+					ModContent.GetInstance<SkillTreeUISystem>()?.Open();
+					var keys = SkillTreeUISystem.ToggleKey?.GetAssignedKeys();
+					caller.Reply(keys is { Count: > 0 }
+						? $"Skill tree key: {string.Join(", ", keys)}"
+						: "The Skill Tree keybind is unassigned. Set it under Settings > Controls > Mod Controls.", keys is { Count: > 0 } ? Info : Problem);
+					break;
+				}
+
+				case "xp":
+					if (!TryNumber(caller, args, 1, out int xp)) {
+						return;
+					}
+
+					player.GetModPlayer<RiftLevelPlayer>().AddExperience(xp);
 					break;
 
 				default:

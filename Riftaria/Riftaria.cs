@@ -1,4 +1,6 @@
 using Terraria.ModLoader;
+using Riftaria.Common.Bosses;
+using Riftaria.Common.Drops;
 using Riftaria.Common.Maps;
 using Riftaria.Common.World;
 
@@ -15,8 +17,10 @@ namespace Riftaria
 			// Static registries survive an assembly reload unless cleared explicitly.
 			WorldEditPolicy.Reset();
 			RiftTierRegistry.Reset();
+			RiftBossRegistry.Reset();
 			RiftRunState.Reset();
 			RiftLayout.Reset();
+			LootFiles.Reset();
 		}
 	}
 }

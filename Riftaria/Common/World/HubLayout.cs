@@ -18,7 +18,7 @@ namespace Riftaria.Common.World
 		/// <summary>Thickness of the sealed shell around the interior.</summary>
 		public const int ShellThickness = 6;
 
-		public const ushort ShellTile = TileID.LihzahrdBrick;
+		public const ushort ShellTile = TileID.Stone;
 		public const ushort FloorTile = TileID.GrayBrick;
 		public const ushort PlatformTile = TileID.Platforms;
 		public const ushort BackWall = WallID.GrayBrick;
@@ -70,6 +70,7 @@ namespace Riftaria.Common.World
 
 			Tile tile = Main.tile[x, y];
 			tile.HasTile = false;
+			tile.WallType = 0;
 			tile.LiquidAmount = 0;
 		}
 	}
